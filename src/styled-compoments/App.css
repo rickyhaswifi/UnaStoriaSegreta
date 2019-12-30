@@ -1,0 +1,15 @@
+:root{
+  --primaryBlack:#151A18;
+  --primaryTan:#FFF8DE;
+  --primaryGold:#FFDC00;
+  --paragraphText:#1C1C1C;
+  --redGradient:linear-gradient(45deg, #002E49, #0185A4);
+  --borderCurve: 5px;
+  --primaryHeader:#002E49;
+  --primaryText: #f2f2f2;
+  --primaryMenu: #00151F;
+}
+
+body{
+  background-color:#002E49 !important;
+}
