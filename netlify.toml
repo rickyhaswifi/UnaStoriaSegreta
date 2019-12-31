@@ -1,7 +1,6 @@
 [build]
-base = "unastoriasegreta/"
-publish = "unastoriasegreta/build/"
-command = "yarn build"
+  publish = "public"
+  command = "npm run build"
 
 [[redirects]]
 from = "/*"
