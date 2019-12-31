@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {PageContainer, PageWrap} from '../../styled-compoments/PanelStyle';
 import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle, Quote} from '../../styled-compoments/PanelContentStyles';
-import { PanelImageFeature } from '../../styled-compoments/PanelImageStyles';
 import { Grid, Form, Icon, Button, TextArea, Card } from 'semantic-ui-react'
 import HeroSup from '../../components/images/panels/supplement/P7Sup1.jpg';
 

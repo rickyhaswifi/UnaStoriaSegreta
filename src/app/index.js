@@ -1,11 +1,12 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route } from 'react-router-dom';
 import "../styled-compoments/App.css";
 import Home from '../pages/home';
 import MenuNav from '../components/shared/MenuNav';
 import {GlobalContianer} from '../styled-compoments/GlobalStyles';
 
 import Contact from '../pages/contact';
+import NoMatch from '../pages/nomatch';
 
 import Panel0Introductions from '../pages/panels/panel-0-intro/Panel0Introductions';
 import Panel0Anniversary from '../pages/panels/panel-0-anniversary';
@@ -64,6 +65,7 @@ const App = () => (
   <>
   <GlobalContianer>
   <MenuNav />
+  
   <Switch onUpdate={() => window.scrollTo(0, 0)}>
     <Slide bottom>
 
@@ -109,7 +111,6 @@ const App = () => (
 <Route exact path='/aftermath/proclamations' component={Panel6AftermathPanel4} />
 
 <Route exact path="/supplements" component={Panel7SupplementsPanel1} />
-{/* <Route exact path='/supplements/1' component={Panel7SupplementsPanel1} />   */}
 <Route exact path='/supplements/2' component={Panel7SupplementsPanel2} />  
 <Route exact path='/supplements/3' component={Panel7SupplementsPanel3} />  
 <Route exact path='/supplements/4' component={Panel7SupplementsPanel4} />  
@@ -118,9 +119,10 @@ const App = () => (
 <Route exact path='/supplements/7' component={Panel7SupplementsPanel7} />  
 <Route exact path='/supplements/8' component={Panel7SupplementsPanel8} />  
 <Route exact path='/supplements/exhibit' component={Panel7SupplementsPanel9} />  
-<Route exact path='/supplements/bibliography' component={Panel7SupplementsPanel10} />  
-{/* <Route component={Home} /> */}
+<Route exact path='/supplements/bibliography' component={Panel7SupplementsPanel10} /> 
+  {/* <Route component={NoMatch} /> */}
   </Slide>
+
   </Switch>
   </GlobalContianer>
   <Footer />

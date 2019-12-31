@@ -1,6 +1,5 @@
 import React from 'react';
 import {StorySec, StoryHeroTitle, StoryHeroSub, StoryP} from '../../styled-compoments/StoryIntroStyles';
-import {PanelButton} from '../../styled-compoments/PanelFeatureStyles';
 import {Button, Icon} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 const StoryIntro = () => (
