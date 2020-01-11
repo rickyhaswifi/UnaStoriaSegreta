@@ -1,9 +1,49 @@
 import React, {Component} from 'react';
-import { Grid, Image, Card, Icon, Menu, Segment } from 'semantic-ui-react';
+import { Grid, Card, Icon, Menu, Segment } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import {FooterText, FooterMain, FooterContent, FooterSocial, FooterLink} from '../../styled-compoments/FooterStyles';
 
 class Footer extends Component {
+  state = { 
+    panelNav: [
+      {
+        title: "Anniversary",
+        link: "/anniversary",
+      },
+      {
+        title: "Introduction",
+        link: "/intro",
+      },
+      {
+        title: "PRELUDE TO WAR",
+        link: "/prelude",
+      },
+      {
+        title: "Internment",
+        link: "/internment",
+      },
+      {
+        title: "Restrictions",
+        link: "/restrictions",
+      },
+      {
+        title: "Evacuation",
+        link: "/evacuation",
+      },
+      {
+        title: "Exclusion",
+        link: "/exclusion",
+      },
+      {
+        title: "Aftermath",
+        link: "/aftermath",
+      },
+      {
+        title: "Supplements",
+        link: "/supplements",
+      },
+    ],    
+   }
 
   constructor(props) {
     super(props);
@@ -17,13 +57,43 @@ class Footer extends Component {
     <>
       <FooterMain>
         <FooterContent>
-        <Menu secondary stackable widths={3}>
-
+      
+        <Menu pointing secondary inverted widths={5} stackable>
           <Menu.Item>
             <FooterLink href="/anniversary">20th Anniversary</FooterLink>
           </Menu.Item>
 
           <Menu.Item>
+            <FooterLink href="/intro">Introduction</FooterLink>
+          </Menu.Item>
+
+          <Menu.Item>
+            <FooterLink href="/prelude">Prelude To War</FooterLink>
+          </Menu.Item>
+
+          <Menu.Item>
+            <FooterLink href="/internment">Internment</FooterLink>
+          </Menu.Item>
+
+          <Menu.Item>
+            <FooterLink href="/restrictions">Restrictions</FooterLink>
+          </Menu.Item>
+        </Menu>
+  
+        <Menu  pointing secondary inverted widths={5} stackable>
+        <Menu.Item>
+          <FooterLink href="/evacuation">Evacuation</FooterLink>
+          </Menu.Item>
+
+        <Menu.Item>
+          <FooterLink href="/exclusion">Exclusion</FooterLink>
+          </Menu.Item>
+
+        <Menu.Item>
+          <FooterLink href="/Aftermath">Aftermath</FooterLink>
+          </Menu.Item>
+
+        <Menu.Item>
           <FooterLink href="/supplements/exhibit">Appearances</FooterLink>
           </Menu.Item>
 
@@ -31,6 +101,8 @@ class Footer extends Component {
           <FooterLink href="/contact">About Us / Contact</FooterLink>
           </Menu.Item>
         </Menu>
+
+        <hr />
 
         <FooterText>
         <FooterSocial>

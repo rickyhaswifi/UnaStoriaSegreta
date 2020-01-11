@@ -3,7 +3,7 @@ import { Grid, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import {PanelBanner, PanelCTA, PanelText, PanelImage, PanelDetail, PanelButton, Horizontal, PanelContent} from '../../styled-compoments/PanelFeatureStyles';
 import Fade from 'react-reveal/Fade'; 
-import IntroHero from "../../components/images/panels/intro/intro-hero.jpg";
+import IntroHero from "../../components/images/panels/intro/intro-hero2.jpg";
 import HeroMusso from "../../components/images/panels/prelude/hero-musso.jpg";
 import HeroCamp from '../../components/images/panels/internment/camp-hero.jpg';
 import HeroRestriction from '../../components/images/panels/restrictions/HeroRestriction.jpg';
@@ -17,10 +17,11 @@ class PanelFeature extends Component {
     panels: [
       {
         number:0,
-        title: "Introductions",
+        title: "Introduction",
         detail: "By the 1930s, the Italian population was at its peak: Italian Americans comprised the largest immigrant group not only in San Francisco, but in the entire United States",
         image: IntroHero,
         link: "/intro",
+        buttonText:'Read More',
       },
       {
         number:1,
@@ -28,6 +29,7 @@ class PanelFeature extends Component {
         detail: "Benito Mussolini came to power in 1922 with the now-famous march of his blackshirts to Rome. Although the American left opposed him from the beginning, he was widely touted in the popular press as a “black-shirted Garibaldi.” ",
         image: HeroMusso,
         link: "/prelude",
+        buttonText:'The Panels',
       },
       {
         number:2,
@@ -35,6 +37,7 @@ class PanelFeature extends Component {
         detail: "Beginning on the night of December 7, 1941, Japanese, German and Italian aliens were arrested by the FBI. How could this happen? The U.S. had not declared war by that date.",
         image: HeroCamp,
         link: "/internment",
+        buttonText:'The Panels',
       },
       {
         number:3,
@@ -42,6 +45,7 @@ class PanelFeature extends Component {
         detail: "In January of 1942, all enemy aliens were required to register at local post offices around the country. Although all resident aliens had already registered in 1940 under the terms of the Smith Act, now, those branded as ‘enemy’ aliens.",
         image: HeroRestriction,
         link: "/restrictions",
+        buttonText:'The Panels',
       },
       {
         number:4,
@@ -49,6 +53,7 @@ class PanelFeature extends Component {
         detail: "For enemy aliens, February was the “cruelest month.” Fears of a Japanese invasion of the West Coast ran wild. After a Japanese submarine apparently landed some torpedoes in Santa Barbara, the pressure to move the Japanese population soared.",
         image: HeroEvac,
         link: "/evacuation",
+        buttonText:'The Panels',
       },
       {
         number:5,
@@ -56,6 +61,7 @@ class PanelFeature extends Component {
         detail: "The Western Defense Commander, Lt. General John L. DeWitt, wanted to remove not only aliens, but also naturalized citizens from the “sensitive” military zones along the Pacific Coast.",
         image: HeroExclusion,
         link: "/exclusion",
+        buttonText:'The Panels',
       },
       {
         number:6,
@@ -63,6 +69,7 @@ class PanelFeature extends Component {
         detail: "It is time America realized what is fundamental to its creed: to condemn one of us on the basis of our origins, national or otherwise, is to condemn us all.",
         image: HeroAfter,
         link: "/aftermath",
+        buttonText:'The Panels',
       },
       {
         number:7,
@@ -70,6 +77,7 @@ class PanelFeature extends Component {
         detail: "The photos and documents that appear in Una Storia Segreta were gathered when the exhibit was mounted in late 1993 and 1994. Since that time, additional information, materials, documents and photographs have been discovered through research and from informants.",
         image: HeroSup,
         link: "/supplements",
+        buttonText:'The Panels',
       },
     ],    
    }
@@ -95,7 +103,7 @@ class PanelFeature extends Component {
           </PanelDetail>
           <Link to={{pathname:`${panel.link}`}}>
           <Button animated color='yellow' size='huge' inverted>
-          <Button.Content visible style={{color:'white'}}>Details</Button.Content>
+          <Button.Content visible style={{color:'white'}}>{panel.buttonText}</Button.Content>
           <Button.Content hidden>
           <Icon name='angle double right' />
           </Button.Content>
@@ -119,7 +127,7 @@ class PanelFeature extends Component {
       </Grid.Row>
     </Grid>
   </PanelBanner>
-              </section>
+  </section>
             );
           })}
         </div>

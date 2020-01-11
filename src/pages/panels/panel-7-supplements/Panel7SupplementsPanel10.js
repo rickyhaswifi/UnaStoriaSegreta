@@ -43,12 +43,12 @@ class Panel7SupplementsPanel10 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P8Sup1})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
+    <PanelTitle>
+    Bibliography
+      <h2>Supplements</h2>
+    </PanelTitle>
     <ParaPanel>
 
-    <PanelContentTitle>
-    Bibliography
-    </PanelContentTitle>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -99,7 +99,7 @@ class Panel7SupplementsPanel10 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 

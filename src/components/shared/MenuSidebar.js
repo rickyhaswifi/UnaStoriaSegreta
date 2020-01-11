@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react';
 import { AllResponsive, MobileOnlyResponse, DeskOnlyResponse } from '../../styled-compoments/ResponsiveStyles';
 import { Grid, Button, Modal, Icon, Menu, } from 'semantic-ui-react'
-import { OverlayMenu, OvTitle, OvItem } from "../../styled-compoments/OverlayMenuStyles";
+import { OverlayMenu, OvTitle, OvItem, CloseIcon } from "../../styled-compoments/OverlayMenuStyles";
 import Slide from 'react-reveal/Slide';
 
-class MenuNav extends Component {
+class MenuSidebar extends Component {
   state = { open: false }
   state = { 
     panelNav: [
@@ -48,83 +48,16 @@ class MenuNav extends Component {
     ],    
    }
 
-  show = (dimmer) => () => this.setState({dimmer, open: true })
-  close = () => this.setState({ open: false })
-  
   render() {
     const { open, dimmer, } = this.state
 
     return (
       <>
-{/* DESKTOP HEADER */}
-<MobileOnlyResponse>
-<Menu inverted fixed='top' borderless>
-<Menu.Item>
-<OvTitle href='/' color='white'>
-UNA STORIA SEGRETA
-</OvTitle>
-</Menu.Item>
-
-<Menu.Menu position='right'>
-{/* <Menu.Item
-href='/contact'
->
-
-About
-</Menu.Item> */}
-<Menu.Item>
-<Button onClick={this.show('blurring')} inverted color='yellow'>
-  MENU
-  </Button>
-</Menu.Item>
-</Menu.Menu>
-</Menu>
-</MobileOnlyResponse>
-
-{/* MOBILE HEADER */}
-<DeskOnlyResponse>
-<Menu inverted fixed='top' borderless fluid widths={1}>
-<Menu.Item>
-<OvTitle href='/' color='white'>
-UNA STORIA SEGRETA
-</OvTitle>
-</Menu.Item>
-
-</Menu>
-</DeskOnlyResponse>
-
-
-{/* MOBILE ONLY BOTTOM */}
-<DeskOnlyResponse>
-      <Menu inverted fixed='bottom' borderless icon='labeled' fluid widths={3}>
-
-        <Menu.Item name='home' href='/'>
-          <Icon name='home' />
-          Home
-        </Menu.Item>
-
-        <Menu.Item name='bars' onClick={this.show('blurring')}  color='yellow'>
-          <Icon name='bars' color='yellow'/>
-          Menu
-        </Menu.Item>
-
-        <Menu.Item name='quote right' href='/contact'>
-          <Icon name='quote right' />
-          Contact
-        </Menu.Item>
-
-      </Menu>
-</DeskOnlyResponse>
-
-
-{/* MODAL START */}
-<Slide bottom>
-        <Modal dimmer={dimmer} open={open} onClose={this.close} closeIcon>
         <OverlayMenu> 
         <Slide bottom cascade>
+          <CloseIcon><Icon name='window close outline' /></CloseIcon>
           <OvTitle
           href='/'
-          style={{ color: 'var(--primaryText)' }}
           >
           UNA STORIA SEGRETA
           </OvTitle>
@@ -164,11 +97,9 @@ UNA STORIA SEGRETA
         </Grid>
         </Slide>
         </OverlayMenu>
-        </Modal>
-        </Slide>
       </>
     )
   }
 }
  
-export default MenuNav;
+export default MenuSidebar;

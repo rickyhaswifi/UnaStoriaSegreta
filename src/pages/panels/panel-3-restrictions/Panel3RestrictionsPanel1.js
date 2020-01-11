@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  SideBySideMagnifier,
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P10Notice1 from '../../../components/images/panels/restrictions/P10Notice1.jpg'
@@ -24,11 +24,13 @@ import P10Notice13 from '../../../components/images/panels/restrictions/P10Notic
 
 class Panel3RestrictionsPanel1 extends Component {
   state = {
-    panelDetail: [
+    panelHeader: [
       {
-        photo:`${P10Notice1}`,
-        info:`This panel focuses on the re-registration required of all enemy aliens in early February of 1942. The result was the Pink Registration Booklet that each enemy alien had to carry on pain of internment. The ID booklet contained a photo and fingerprint of each enemy alien and instructions as to their behavior. The issue of the Pittsburg Post-Dispatch features the headline about the curfew going into effect on Feb. 24.`,
+        photopanel:`${P10Notice1}`,
+        HeaderDetails:`This panel focuses on the re-registration required of all enemy aliens in early February of 1942. The result was the Pink Registration Booklet that each enemy alien had to carry on pain of internment. The ID booklet contained a photo and fingerprint of each enemy alien and instructions as to their behavior. The issue of the <span class='italic'>Pittsburg Post-Dispatch</span> features the headline about the curfew going into effect on Feb. 24.`,
       },
+    ],
+    panelDetail: [
       {
         photo:`${P10Notice13}`,
         info:`Travel permit for Caterina Cardinale. Even though she was forced to move by government order, Cardinale still had to obtain this travel permit to move from her home in Pittburg to Centreville farther south.`,
@@ -39,43 +41,13 @@ class Panel3RestrictionsPanel1 extends Component {
       },
       {
         photo:`${P10Notice12}`,
-        info:`The map at top shows both the prohibited zones (in black) and the curfew zones (in crosshatch) for enemy aliens. The letter to its left reprints the message from Attorney General Biddle to L’Italia requiring the newspaper to print the orders restricting the possession of “contraband” by enemy aliens. The curfew (or ‘restricted’) zones covered what is commonly known as the Pacific Slope, the area from the Pacific ocean to the Sierra foothills. In this zone, the 8PM to 6AM curfew was in effect, as well as travel and residence restrictions. The copy of the Pittsburg Post Dispatch is headlined with the news of the 9 PM (the original curfew was 9PM; in March, General DeWitt increased the curfew hours to start at 8 PM) curfew for enemy aliens about to go into effect on February 24.`,
-      },
-      {
-        photo:`${P10Notice5}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice6}`,
-        info:``,
+        info:`The map at top shows both the prohibited zones (in black) and the curfew zones (in crosshatch) for enemy aliens. The letter to its left reprints the message from Attorney General Biddle to <span class='italic'>L’Italia</span> requiring the newspaper to print the orders restricting the possession of “contraband” by enemy aliens. The curfew (or ‘restricted’) zones covered what is commonly known as the Pacific Slope, the area from the Pacific ocean to the Sierra foothills. In this zone, the 8PM to 6AM curfew was in effect, as well as travel and residence restrictions. The copy of the <span class='italic'>Pittsburg Post-Dispatch</span> is headlined with the news of the 9 PM (the original curfew was 9PM; in March, General DeWitt increased the curfew hours to start at 8 PM) curfew for enemy aliens about to go into effect on February 24.`,
       },
       {
         photo:`${P10Notice7}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice8}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice9}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice10}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice11}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice4}`,
-        info:``,
-      },
-      {
-        photo:`${P10Notice3}`,
-        info:``,
+        info:`Beginning in late December 1941, Italian aliens were hit by a series of federal regulations of increasing severity. Posters like the one shown ordered them to register and be photographed; the resulting I.D. booklets had to be carried at all times. Any travel of more than 5 miles from home had to be preceded by applications for travel permits like those shown. On the West Coast, an 8PM to 6AM curfew was imposed, which led to widespread fear of being reported.
+        <br /><br />
+        One family remembered returning from the movies later in their car and covering their Nonna, an enemy alien in violation of curfew, with a blanket. Latent effects could cut deeper and last longer. Frances Cardinalli reported that ever afterwards, her father, upon hearing the 8 o’clock factory whistle in Pittsburg, would remember the curfew and silently go to bed. `,
       },
     ]
   }
@@ -87,12 +59,11 @@ class Panel3RestrictionsPanel1 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P10Notice1})` }}/>
-    <PanelTitle>Restrictions :: Panels</PanelTitle>
-    <ParaPanel>
+    <PanelTitle>Notice To Aliens
+      <h2>Restrictions :: Panels</h2>
+    </PanelTitle>
 
-    <PanelContentTitle>
-    Notice To Aliens
-    </PanelContentTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={3}>
     <Menu.Item
@@ -112,30 +83,57 @@ class Panel3RestrictionsPanel1 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
 
-        </Grid.Row>
-      </Grid>
+    {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
+
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -173,7 +171,7 @@ class Panel3RestrictionsPanel1 extends Component {
     </CrumbRight>
     </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

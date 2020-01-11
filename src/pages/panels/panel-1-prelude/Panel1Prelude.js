@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
+import { ParaPanel, Quote, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
 import { Icon, Grid } from 'semantic-ui-react'
 import HeroMuso from '../../../components/images/panels/prelude/hero-musso.jpg';
 
@@ -41,7 +41,7 @@ class Panel1Prelude extends Component {
 <ParaPanel>
 
   <p>  
-  Benito Mussolini came to power in 1922 with the now-famous march of his blackshirts to Rome. Mussolini made the cover of Newsweek after his invasion of France in 1940.Although the American left opposed him from the beginning, he was widely touted in the popular press as a “black-shirted Garibaldi.” The <span className='italic'>fascisti</span>fascisti were compared to the Old West’s vigilantes. Even the left-wing <span className='italic'>Nation Magazine</span> ran an article during the 1932 presidential campaign entitled, “Wanted: A Mussolini.”
+  Benito Mussolini came to power in 1922 with the now-famous march of his blackshirts to Rome. Mussolini made the cover of <span className='italic'>Newsweek</span> after his invasion of France in 1940. Although the American left opposed him from the beginning, he was widely touted in the popular press as a “black-shirted Garibaldi.” The <span className='italic'>fascisti</span> were compared to the Old West’s vigilantes. Even the left-wing <span className='italic'>Nation Magazine</span> ran an article during the 1932 presidential campaign entitled, “Wanted: A Mussolini.”
   </p>
 
 <Quote>

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P3Sup1 from '../../../components/images/panels/supplement/P3Sup1.jpg';
@@ -22,11 +22,11 @@ class Panel7SupplementsPanel3 extends Component {
       },
       {
         photo:`${P3Sup2}`,
-        info:``,
+        info:`Louis Sdraulig’s December 8, 1942 letter from the internment camp at McAlester, OK, was sent after ten months as an internee. His letter is a classic example of how many internees were completely befuddled about why they were interned. It also demonstrates how, in the absence of information, many looked for some hidden fault of their own. As Sdraulig writes, “After all this time in the enclosure I do not know yet why all this, must be some reason for, some evil I do not know, something wrong some where…My past record is spotless clean I always obeyed all laws of this country…I do not know how I am considered as potentialy (sic) dangerous. What evil I made?”`,
       },
       {
         photo:`${P3Sup2A}`,
-        info:`Louis Sdraulig’s December 8, 1942 letter from the internment camp at McAlester, OK, was sent after ten months as an internee. His letter is a classic example of how many internees were completely befuddled about why they were interned. It also demonstrates how, in the absence of information, many looked for some hidden fault of their own. As Sdraulig writes, “After all this time in the enclosure I do not know yet why all this, must be some reason for, some evil I do not know, something wrong some where…My past record is spotless clean I always obeyed all laws of this country…I do not know how I am considered as potentially (sic) dangerous. What evil I made?”`,
+        info:`Letter from Louis Sdraulig to Asst. AG Edward Ennis (Continued)`,
       },
       {
         photo:`${P3Sup5}`,
@@ -42,12 +42,10 @@ class Panel7SupplementsPanel3 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P3Sup5})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
-
-    <PanelContentTitle>
-    Photos & Documents #3
-    </PanelContentTitle>
+    <PanelTitle>Photos & Documents #3
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -98,7 +96,7 @@ class Panel7SupplementsPanel3 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -106,22 +104,25 @@ class Panel7SupplementsPanel3 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -190,7 +191,7 @@ class Panel7SupplementsPanel3 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

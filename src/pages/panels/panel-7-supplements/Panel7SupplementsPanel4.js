@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P4Sup1 from '../../../components/images/panels/supplement/P4Sup1.jpg';
@@ -20,11 +20,11 @@ class Panel7SupplementsPanel4 extends Component {
     panelDetail: [
       {
         photo:`${P4Sup1}`,
-        info:`These contraband items that all 600,000 enemy aliens had to surrender to local authorities in late 1941 appeared in the original Una Storia Segreta exhibit. They included the radio with shortwave band, and apparently innocuous items like the flashlight and a Kodak camera.`,
+        info:`These contraband items that all 600,000 enemy aliens had to surrender to local authorities in late 1941 appeared in the original <span class='italic'>Una Storia Segreta</span> exhibit. They included the radio with shortwave band, and apparently innocuous items like the flashlight and a Kodak camera.`,
       },
       {
         photo:`${P4Sup2}`,
-        info:`This “call to arms” from the Stockton Record (Stockton, CA) encouraged citizens to be wary of enemy aliens and to report any activities they deemed to be “suspicious.” Such warnings could only heighten fears that those who shortly before were neighbors or friends might now be engaged in sabotage or espionage. Not a single case of either was ever reported regarding Italian enemy aliens.`,
+        info:`This “call to arms” from the <span class='italic'>Stockton Record</span> (Stockton, CA) encouraged citizens to be wary of enemy aliens and to report any activities they deemed to be “suspicious.” Such warnings could only heighten fears that those who shortly before were neighbors or friends might now be engaged in sabotage or espionage. Not a single case of either was ever reported regarding Italian enemy aliens.`,
       },
       {
         photo:`${P4Sup3}`,
@@ -32,15 +32,15 @@ class Panel7SupplementsPanel4 extends Component {
       },
       {
         photo:`${P4Sup4}`,
-        info:`This copy of the February 4, 1942 Richmond Independent headlines the coming order for enemy aliens to evacuate from the California coast. Subsequent issues would continue this line, focusing more specifically on where the “prohibited” zones were located. Note that the subhead refers to enemy aliens as “Axis nationals,” emphasizing their connection to the enemy nations often referred to as the Axis.`,
+        info:`This copy of the February 4, 1942 <span class='italic'>Richmond Independent</span> headlines the coming order for enemy aliens to evacuate from the California coast. Subsequent issues would continue this line, focusing more specifically on where the “prohibited” zones were located. Note that the subhead refers to enemy aliens as “Axis nationals,” emphasizing their connection to the enemy nations often referred to as the Axis.`,
       },
       {
         photo:`${P4Sup5}`,
-        info:`This map showing the prohibited and restricted zones in northern California appeared in the February 5, 1942 San Francisco Chronicle. All enemy aliens had to leave prohibited zones and work or live elsewhere; they could remain in restricted zones but were subject to curfew, travel, and change-of-residence restrictions.`,
+        info:`This map showing the prohibited and restricted zones in northern California appeared in the February 5, 1942 <span class='italic'>San Francisco Chronicle</span>. All enemy aliens had to leave prohibited zones and work or live elsewhere; they could remain in restricted zones but were subject to curfew, travel, and change-of-residence restrictions.`,
       },
       {
         photo:`${P4Sup6}`,
-        info:`This map from the San Francisco Chronicle of February 13, 1942, indicates the Prohibited Zones in San Francisco from which enemy aliens were forced to remove themselves. They are the waterfront district north and south of the Bay Bridge (including Fisherman’s Wharf), the waterfront district near Islais Channel, the Hunters Point district, and the district near China Basin. The article also notes that on February 24, the remainder of San Francisco will become a “curfew zone,” where enemy aliens must be in their homes between 9pm and 6am.`,
+        info:`This map from the <span class='italic'>San Francisco Chronicle</span> of February 13, 1942, indicates the Prohibited Zones in San Francisco from which enemy aliens were forced to remove themselves. They are the waterfront district north and south of the Bay Bridge (including Fisherman’s Wharf), the waterfront district near Islais Channel, the Hunters Point district, and the district near China Basin. The article also notes that on February 24, the remainder of San Francisco will become a “curfew zone,” where enemy aliens must be in their homes between 9pm and 6am.`,
       },
     ]
   }
@@ -52,12 +52,10 @@ class Panel7SupplementsPanel4 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P4Sup1})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
-
-    <PanelContentTitle>
-    Photos & Documents #4
-    </PanelContentTitle>
+    <PanelTitle>Photos & Documents #4
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -108,7 +106,7 @@ class Panel7SupplementsPanel4 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -116,22 +114,25 @@ class Panel7SupplementsPanel4 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -200,7 +201,7 @@ class Panel7SupplementsPanel4 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

@@ -17,7 +17,7 @@ class Contact extends Component {
             About Us...
           </PanelContentTitle>
           <p>
-          On February 24, 1994, the exhibit Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens’ opened at the Museo Italo Americano in San Francisco. The opening on February 24 memorialized the date in 1942 when enemy aliens of Italian descent living in recently-designated “prohibited zones” on the West Coast had to leave their homes and businesses in those zones and move elsewhere. This story—which we called the “Evacuation”—and other elements of the internments and restrictions on enemy aliens on the homefront were contained in the narratives, photos and documents of the Una Storia Segreta exhibit. For the first time, what happened to more than 600,000 Italian immigrants nationwide was graphically presented for all to see.
+          On February 24, 1994, the exhibit Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens’ opened at the Museo Italo Americano in San Francisco. The opening on February 24 memorialized the date in 1942 when enemy aliens of Italian descent living in recently-designated “prohibited zones” on the West Coast had to leave their homes and businesses in those zones and move elsewhere. For the first time, any viewer with access to the internet can see in detail this pathbreaking exhibit that changed the accepted narrative of WWII on the home front.
           </p>
     <Grid doubling stackable columns={2}>
       <Grid.Row>
@@ -32,7 +32,7 @@ class Contact extends Component {
 
      <Button animated='vertical'>
       <Button.Content visible>
-      <Icon name='cc paypal' size='large'/>
+      <Icon name='cc paypal' size='medium'/>
       </Button.Content>
       <Button.Content hidden>
         <Icon name='dollar sign' />
@@ -41,7 +41,7 @@ class Contact extends Component {
 
       <Button animated='vertical'>
       <Button.Content visible>
-      <Icon name='cc apple pay' size='large'/>
+      <Icon name='cc apple pay' size='medium'/>
       </Button.Content>
       <Button.Content hidden>
         <Icon name='dollar sign' />
@@ -50,7 +50,7 @@ class Contact extends Component {
           
       <Button animated='vertical'>
       <Button.Content visible>
-      <Icon name='cc discover' size='large'/>
+      <Icon name='cc discover' size='medium'/>
       </Button.Content>
       <Button.Content hidden>
         <Icon name='dollar sign' />
@@ -63,20 +63,29 @@ class Contact extends Component {
         <Grid.Column>
           <PanelContentTitle>Write Us...</PanelContentTitle>
         <Card fluid style={{padding: '1em'}}>
-          <Form action='POST' data-netlify='true' >
-          <Form.Field>
-          <label>Name</label>
-          <input placeholder='Name' />
-          </Form.Field>
-          <Form.Field>
-          <label>Email</label>
-          <input placeholder='name@email.com' label='Email'/>
-          </Form.Field>
-          <Form.Field
-          control={TextArea}
-          label='About'
-          placeholder='Tell us more about you...'
-        />
+          <form 
+          className='ui form'
+          name="contact" 
+          method="POST" 
+          data-netlify="true"
+          data-netlify-honeypot='bot-field'
+          >
+
+
+        <div className="field">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Name" />
+        </div>
+
+        <div className="field">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="email@website.com" />
+        </div>
+
+        <div class="field">
+        <label>Message</label>
+        <textarea placeholder='Your Question/Request'></textarea>
+        </div>
 
           <Button animated='vertical' primary type='submit'>
       <Button.Content visible>
@@ -87,7 +96,7 @@ class Contact extends Component {
       </Button.Content>
       </Button>
 
-          </Form>
+          </form>
            </Card>
         </Grid.Column>
       </Grid.Row>

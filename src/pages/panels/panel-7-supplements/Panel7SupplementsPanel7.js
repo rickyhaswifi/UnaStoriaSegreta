@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P7Sup1 from '../../../components/images/panels/supplement/P7Sup1.jpg';
@@ -17,7 +17,7 @@ class Panel7SupplementsPanel7 extends Component {
     panelDetail: [
       {
         photo:`${P7Sup1}`,
-        info:`Right after its opening in February 1994, Una Storia Segreta was displayed in the State Capitol in Sacramento, in the rotunda. An open forum included then-governor, Pete Wilson, who signed a resolution formally recognizing these events.`,
+        info:`Right after its opening in February 1994, <span class='italic'>Una Storia Segreta</span> was displayed in the State Capitol in Sacramento, in the rotunda. An open forum included then-governor, Pete Wilson, who signed a resolution formally recognizing these events.`,
       },
       {
         photo:`${P7Sup2}`,
@@ -25,7 +25,7 @@ class Panel7SupplementsPanel7 extends Component {
       },
       {
         photo:`${P7Sup3}`,
-        info:"The back cover of the exhibit Catalog, listing the six sites where the exhibit was shown in its first year. Click here for a listing of exhibit showings in subsequent years.",
+        info:"The back cover of the exhibit Catalog, listing the six sites where the exhibit was shown in its first year. Click on <a href='/supplements/exhibit'>Exhibit Appearances</a> below for a listing.",
       },
     ]
   }
@@ -37,12 +37,10 @@ class Panel7SupplementsPanel7 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P7Sup1})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
-
-    <PanelContentTitle>
-    Photos & Documents #1
-    </PanelContentTitle>
+    <PanelTitle>Photos & Documents #7
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -93,7 +91,7 @@ class Panel7SupplementsPanel7 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -101,22 +99,25 @@ class Panel7SupplementsPanel7 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -185,7 +186,7 @@ class Panel7SupplementsPanel7 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

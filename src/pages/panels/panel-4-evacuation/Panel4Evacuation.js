@@ -37,7 +37,7 @@ return (
 <PageWrap>
 
 <PanelBanner style={{ background: `url(${HeroEvac})` }}/>
-  <PanelTitle>Evacuations</PanelTitle>
+  <PanelTitle>Evacuation</PanelTitle>
 <ParaPanel>
 
 <p>For enemy aliens, February was the &ldquo;cruelest month.&rdquo; Fears of a Japanese invasion of the West Coast ran wild. After a Japanese submarine apparently landed some torpedoes in Santa Barbara, the pressure to move the Japanese population soared. Italians and Germans, feeling the hysteria and reading news reports about the planned removal of all aliens to inland camps, feared the worst.</p>
@@ -46,7 +46,7 @@ return (
 
 <p>The total numbers who had to leave their homes remains unknown, but in places like Monterey, Pittsburg and Santa Cruz, thousands had to move. In some cases, the new house might be only a block away; in others, it might require a trip of ten, fifteen, or fifty miles to get out of the prohibited zone. Without cars or freeways, such gaps between families often seemed unbridgeable. For some, it was unbearable. Among the several suicides reported in the newspapers was that of 65-year-old Martini Battistessa of Richmond, who, despondent over having to move, threw himself in front of a train on February 21, 1942.</p>
 
-<p>Even aliens with sons or grandsons in the U.S. Armed Forces, like Caterina Buccelato, pictured above with her son Nicky, were not exempt from the order. One San Francisco resident who had to leave his home near Fisherman&rsquo;s Wharf, was the father of a serviceman killed at Pearl Harbor. In Santa Cruz, Steve Ghio came home on leave from the Navy to find the houses in his neighborhood boarded up. He could not find his parents or relatives until he learned of their forced move and obtained a new address from the local police.</p>
+<p>Even aliens with sons or grandsons in the U.S. Armed Forces, like Caterina Buccelato, were not exempt from the order. One San Francisco resident who had to leave his home near Fisherman&rsquo;s Wharf, was the father of a serviceman killed at Pearl Harbor. In Santa Cruz, Steve Ghio came home on leave from the Navy to find the houses in his neighborhood boarded up. He could not find his parents or relatives until he learned of their forced move and obtained a new address from the local police.</p>
 
 <p>The immediate personal and economic effects of this evacuation were vivid enough. California&rsquo;s fishing fleet was decimated by the order prohibiting enemy aliens from ports and docks on the coast. Ninety-seven-year-old Placido Abono was moved from his Pittsburg home to Oakley, ten miles away, on a stretcher.</p>
 

@@ -8,7 +8,7 @@ const HomeHeroBanner = () => (
   <HeroTextCont>
     <HomeHeroSub>
       <Fade left>
-    The American Italian Historical Association Presents
+      WHEN ITALIAN AMERICANS WERE “ENEMY ALIENS”
       </Fade>
     </HomeHeroSub>
     <HomeHeroTitle>
@@ -16,6 +16,11 @@ const HomeHeroBanner = () => (
       Una Storia Segreta
       </Fade>
     </HomeHeroTitle>
+    {/* <HomeHeroSub>
+      <Fade left>
+    The American Italian Historical Association Presents
+      </Fade>
+    </HomeHeroSub> */}
   </HeroTextCont>
   <HeroBanner style={{ background: `url(${Gate})` }}>
   </HeroBanner>

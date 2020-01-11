@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P6Sup1 from '../../../components/images/panels/supplement/P6Sup1.jpg';
@@ -18,11 +18,11 @@ class Panel7SupplementsPanel6 extends Component {
     panelDetail: [
       {
         photo:`${P6Sup1}`,
-        info:`This copy of the San Francisco Call Bulletin, part of the War Panel in Section One, features the article claiming that the Italian language schools and the Italian Press were dominated by Mussolini, and that Ettore Patrizi, editor of L’Italia was pro-fascist. The hearings were the first phase of the Tenney Committee Hearings that would resume in May, and result in exclusion orders for Patrizi and dozens of other naturalized citizens.`,
+        info:`This copy of the <span class='italic'>San Francisco Call Bulletin</span>, part of the War Panel in Section One, features the article claiming that the Italian language schools and the Italian Press were dominated by Mussolini, and that Ettore Patrizi, editor of <span class='italic'>L’Italia</span> was pro-fascist. The hearings were the first phase of the Tenney Committee Hearings that would resume in May, and result in exclusion orders for Patrizi and dozens of other naturalized citizens.`,
       },
       {
         photo:`${P6Sup2}`,
-        info:`The San Francisco News of May 26, 1942 highlighted the emotional testimony from sitting Mayor Angelo Rossi in denying the charges made against him at the Tenney Committee hearings days earlier. The public charges were so politically damaging that Rossi never held office again.`,
+        info:`The <span class='italic'>San Francisco News</span> of May 26, 1942 highlighted the emotional testimony from sitting Mayor Angelo Rossi in denying the charges made against him at the Tenney Committee hearings days earlier. The public charges were so politically damaging that Rossi never held office again.`,
       },
       {
         photo:`${P6Sup3}`,
@@ -30,7 +30,7 @@ class Panel7SupplementsPanel6 extends Component {
       },
       {
         photo:`${P6Sup4}`,
-        info:`In August of 1943, the Attorney General commissioned a report on the Army’s Individual Exclusion Program—which he disagreed with. The Preliminary Report, cited here, comprised a stunning rebuke of the entire rationale for the program. The last paragraph in section 1, above, is stunningly direct in its criticism of the term “potentially dangerous” used to justify exclusion: Practically, the use of phrases such as this suggests that those who use them hold the view that a subject of an exclusion case must be excluded unless it is clear that there is no reason to exclude him. This is analogous to saying that the burden of proof is on the excludee, although the excludee, of course, cannot meet the burden, since he is not advised of the charges against him.`,
+        info:`In August of 1943, the Attorney General commissioned a report on the Army’s Individual Exclusion Program—which he disagreed with. The Preliminary Report, cited here, comprised a stunning rebuke of the entire rationale for the program. The last paragraph in section 1, above, is stunningly direct in its criticism of the term “potentially dangerous” used to justify exclusion: <span class='italic'>Practically, the use of phrases such as this suggests that those who use them hold the view that a subject of an exclusion case must be excluded unless it is clear that there is no reason to exclude him. This is analogous to saying that the burden of proof is on the excludee, although the excludee, of course, cannot meet the burden, since he is not advised of the charges against him.</span>`,
       },
     ]
   }
@@ -42,12 +42,10 @@ class Panel7SupplementsPanel6 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P6Sup2})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
-
-    <PanelContentTitle>
-    Photos & Documents #6
-    </PanelContentTitle>
+    <PanelTitle>Photos & Documents #6
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -98,7 +96,7 @@ class Panel7SupplementsPanel6 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -106,22 +104,25 @@ class Panel7SupplementsPanel6 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -190,7 +191,7 @@ class Panel7SupplementsPanel6 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

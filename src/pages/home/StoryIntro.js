@@ -6,10 +6,10 @@ const StoryIntro = () => (
   <>
   <StorySec id='story'>
     <StoryHeroTitle>
-    20th anniversary
+    20th Anniversary
     </StoryHeroTitle><br />
     <StoryHeroSub>
-    WHEN ITALIAN AMERICANS WERE “ENEMY ALIENS”
+    
     </StoryHeroSub>
   </StorySec>
   <StoryP>
@@ -17,16 +17,13 @@ const StoryIntro = () => (
   <br />
   <br />
   <Link to='/anniversary'>
-          <Button animated color='yellow' size='huge' inverted>
-          <Button.Content visible style={{color:'white'}}>Read more</Button.Content>
-          <Button.Content hidden style={{textAlign:'center'}}>
-          <Icon name='' />
-          <Icon name='' />
-          <Icon name='angle double right' />
-          <Icon name='angle double right' />
-          </Button.Content>
-          </Button>
-          </Link>
+    <Button animated color='yellow' size='huge' inverted>
+    <Button.Content visible style={{color:'white'}}>Read more</Button.Content>
+    <Button.Content hidden style={{textAlign:'center'}}>
+    <Icon name='angle double right' />
+    </Button.Content>
+    </Button>
+  </Link>
   </StoryP>
   </>
 )

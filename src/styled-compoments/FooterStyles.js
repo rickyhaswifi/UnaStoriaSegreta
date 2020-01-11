@@ -4,13 +4,13 @@ export const FooterMain = styled.section`
 background-color: var(--primaryMenu);
 color: white;
 padding-bottom:2em;
-height: 35vh;
+min-height: 300px;
 width:100%;
 text-align:center;
 position: absolute;
 padding:2.5em;
 /* z-index:999; */
-
+transform: .3s all;
 .facebook:hover{
     background: linear-gradient(45deg, #1B65EB,#1BDBF8 );
     -webkit-background-clip: text;
@@ -38,21 +38,19 @@ padding:2.5em;
 `;
 
 export const FooterContent = styled.section`
-margin: 0;
+margin: auto;
 position: relative;
 width:50%;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
 `;
 
 export const FooterLink = styled.a`
-color:var(--primaryGold);
+color:var(--primaryGold) !important;
 transition: .2s all;
 text-transform: uppercase;
 font-size: .8em;
+transform: .2s all;
 &:hover{
-  color:var(--primaryTan);
+  color:var(--primaryTan) !important;
   letter-spacing:1px;
 }
 
@@ -68,5 +66,6 @@ letter-spacing: 2px;
 
 export const FooterSocial = styled.section`
 margin: 0 2em;
-display: inline;
+padding:.5em;
+display: inline-block;
 `;

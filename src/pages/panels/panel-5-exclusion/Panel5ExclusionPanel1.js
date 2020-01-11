@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 import {
-  SideBySideMagnifier,
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P16Tenney1 from '../../../components/images/panels/exclusion/P16Tenney1.jpg';
 import P16Tenney2 from '../../../components/images/panels/exclusion/P16Tenney2.jpg';
 import P16Tenney3 from '../../../components/images/panels/exclusion/P16Tenney3.jpg';
-import P16Tenney4 from '../../../components/images/panels/exclusion/P16Tenney4.jpg';
-import P16Tenney5 from '../../../components/images/panels/exclusion/P16Tenney5.jpg';
-import P16Tenney6 from '../../../components/images/panels/exclusion/P16Tenney6.jpg';
-import P16Tenney7 from '../../../components/images/panels/exclusion/P16Tenney7.jpg';
-import P16Tenney8 from '../../../components/images/panels/exclusion/P16Tenney8.jpg';
+import P16Tenney4 from '../../../components/images/panels/exclusion/P16Tenney7.jpg';
 // END IMPORTS
 
 class Panel5ExclusionPanel1 extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${P16Tenney1}`,
+        HeaderDetails:`The California Assembly Committee Investigating UnAmerican Activities was chaired by Assemblyman Jack Tenney of Ingleside. It resumed hearings in San Francisco in late May of 1942 and featured testimony arguing that San Francisco was a hotbed of fascist activity. As a result, two dozen of the city’s most prominent naturalized citizens were served with orders excluding them from most of California and 27 other states. The hearings inspired big headlines about those under investigation, including the sitting mayor of San Francisco, Angelo Rossi.`,
+      },
+    ],
     panelDetail: [
       {
-        photo:`${P16Tenney1}`,
-        info:`The California Assembly Committee Investigating UnAmerican Activities was chaired by Assemblyman Jack Tenney of Ingleside. It resumed hearings in San Francisco in late May of 1942 and featured testimony arguing that San Francisco was a hotbed of fascist activity. As a result, two dozen of the city’s most prominent naturalized citizens were served with orders excluding them from most of California and 27 other states. The hearings inspired big headlines about those under investigation, including the sitting mayor of San Francisco, Angelo Rossi.`,
-      },
-      {
         photo:`${P16Tenney2}`,
-        info:`The San Francisco Chronicle covered the Tenney hearings in great detail. The subhead highlights the major figures forced to testify: Sylvester Andriano, head of the Draft Board in North Beach, Ettore Patrizi, editor/publisher of L’Italia, and Angelo Rossi, current mayor of the city. Their main accuser, Carmelo Zito, charged that he had seen Rossi give the fascist salute in public. The photo inset depicts Zito, editor of the Italian American newspaper, Il Corriere del Popolo.`,
+        info:`The <span class='italic'>San Francisco Chronicle</span> covered the Tenney hearings in great detail. The subhead highlights the major figures forced to testify: Sylvester Andriano, head of the Draft Board in North Beach, Ettore Patrizi, editor/publisher of <span class='italic'>L’Italia</span>, and Angelo Rossi, current mayor of the city. Their main accuser, Carmelo Zito, charged that he had seen Rossi give the fascist salute in public. The photo inset depicts Zito, editor of the Italian American newspaper, <span class='italic'>Il Corriere del Popolo</span>.`,
       },
       {
         photo:`${P16Tenney3}`,
@@ -34,23 +32,7 @@ class Panel5ExclusionPanel1 extends Component {
       },
       {
         photo:`${P16Tenney4}`,
-        info:``,
-      },
-      {
-        photo:`${P16Tenney5}`,
-        info:``,
-      },
-      {
-        photo:`${P16Tenney6}`,
-        info:``,
-      },
-      {
-        photo:`${P16Tenney7}`,
-        info:``,
-      },
-      {
-        photo:`${P16Tenney8}`,
-        info:``,
+        info:`News articles detail how American-born Mayor Angelo Rossi responds, sometimes tearfully, to accusations at the Tenney Committee hearings that he was a fascist. Following the hearings, Rossi’s political career was effectively over.`,
       },
     ]
   }
@@ -61,13 +43,13 @@ class Panel5ExclusionPanel1 extends Component {
       <>
     <PageContainer>
     <PageWrap>
-    <PanelBanner style={{ background: `url(${P16Tenney1})` }}/>
-    <PanelTitle>Exclusion :: Panels</PanelTitle>
-    <ParaPanel>
 
-    <PanelContentTitle>
-    Tenney Committee
-    </PanelContentTitle>
+    <PanelBanner style={{ background: `url(${P16Tenney1})` }}/>
+    <PanelTitle> Tenney Committee
+      <h2>Exclusion :: Panels</h2>
+    </PanelTitle>
+
+    <DetailPanel>
 
     <Menu pointing secondary widths={2}>
     <Menu.Item
@@ -83,30 +65,57 @@ class Panel5ExclusionPanel1 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
 
-        </Grid.Row>
-      </Grid>
+    {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
+
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -140,7 +149,7 @@ class Panel5ExclusionPanel1 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

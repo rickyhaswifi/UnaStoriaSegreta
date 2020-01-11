@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P8Sup1 from '../../../components/images/panels/supplement/P8Sup1.jpg';
@@ -20,7 +20,7 @@ class Panel7SupplementsPanel8 extends Component {
     panelDetail: [
       {
         photo:`${P8Sup1}`,
-        info:`In 1997, Una Storia Segreta was mounted on easels in Washington, DC and displayed around the main hall in the Rayburn House Office Building. The display was coordinated with the introduction of the bill, the Wartime Violation of Italian American Civil Liberties Act, that would take another three years to pass.`,
+        info:`In 1997, <span class='italic'>Una Storia Segreta</span> was mounted on easels in Washington, DC and displayed around the main hall in the Rayburn House Office Building. The display was coordinated with the introduction of the bill, the Wartime Violation of Italian American Civil Liberties Act, that would take another three years to pass.`,
       },
       {
         photo:`${P8Sup2}`,
@@ -36,11 +36,11 @@ class Panel7SupplementsPanel8 extends Component {
       },
       {
         photo:`${P8Sup5}`,
-        info:``,
+        info:`Copy of Public Law 106-451, The Wartime Violation of Italian American Civil Liberties Act, calling for a Report by the Attorney General.`,
       },
       {
         photo:`${P8Sup6}`,
-        info:`The Department of Justice, complying with the Wartime Violation of Italian American Civil Liberties Act, researched and issued this report to the Congress in 2001. In addition to lists of those interned and arrested, it included, for the first time, the U.S. Government’s acknowledgment that there had indeed been a “mass temporary evacuation of Italian enemy aliens” on the West Coast, and that similar plans for an East Coast removal of German and Italian enemy aliens had been seriously proposed by the military, but were abandoned by order of the President.`,
+        info:`The Department of Justice Report (Cover)`,
       },
     ]
   }
@@ -52,12 +52,10 @@ class Panel7SupplementsPanel8 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P8Sup1})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
-
-    <PanelContentTitle>
-    Photos & Documents #8
-    </PanelContentTitle>
+    <PanelTitle>Photos & Documents #8
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -108,7 +106,7 @@ class Panel7SupplementsPanel8 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -116,22 +114,25 @@ class Panel7SupplementsPanel8 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -200,7 +201,7 @@ class Panel7SupplementsPanel8 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

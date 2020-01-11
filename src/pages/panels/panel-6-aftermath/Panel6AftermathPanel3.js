@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  SideBySideMagnifier,
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P20Acknowledgements1 from '../../../components/images/panels/aftermath/P20Acknowledgements1.jpg';
@@ -12,10 +12,16 @@ import P20Acknowledgements1 from '../../../components/images/panels/aftermath/P2
 
 class Panel6AftermathPanel3 extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${P20Acknowledgements1}`,
+        HeaderDetails:`The acknowledgments panel thanks all those who contributed to the making and traveling of <span class='italic'>Una Storia Segreta.</span>`,
+      },
+    ],
     panelDetail: [
       {
         photo:`${P20Acknowledgements1}`,
-        info:`The acknowledgments panel thanks all those who contributed to the making and traveling of Una Storia Segreta.`,
+        info:`The acknowledgments panel thanks all those who contributed to the making and traveling of <span class='italic'>Una Storia Segreta.</span>`,
       },
     ]
   }
@@ -26,17 +32,16 @@ class Panel6AftermathPanel3 extends Component {
       <>
     <PageContainer>
     <PageWrap>
-    <PanelBanner style={{ background: `url(${P20Acknowledgements1})` }}/>
-    <PanelTitle>Aftermath :: Panels</PanelTitle>
-    <ParaPanel>
 
-    <PanelContentTitle>
-    Acknowledgments
-    </PanelContentTitle>
+    <PanelBanner style={{ background: `url(${P20Acknowledgements1})` }}/>
+    <PanelTitle>Acknowledgments
+      <h2>Aftermath :: Panels</h2>
+    </PanelTitle>
+
+    <DetailPanel>
 
     <Menu pointing secondary widths={4}>
     <Menu.Item
-    active={'.'}
     name="Restrictions Lifted"
     href='/aftermath/lifted'
     />
@@ -45,6 +50,7 @@ class Panel6AftermathPanel3 extends Component {
     href='/aftermath/friends'
     />
     <Menu.Item
+    active={'.'}
     name='Acknowledgments'
     href='/aftermath/acknowledgments'
     />
@@ -56,38 +62,64 @@ class Panel6AftermathPanel3 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
-
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
-
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
-
-        </Grid.Row>
-      </Grid>
-
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
       </section>
             );
           })}
+</section>
+{/* 
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
+
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
+
+    
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
+
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
+
+      </section>
+            );
+          })} */}
       
       <Menu pointing secondary widths={4}>
     <Menu.Item
-    active={'.'}
     name="Restrictions Lifted"
     href='/aftermath/lifted'
     />
@@ -96,6 +128,7 @@ class Panel6AftermathPanel3 extends Component {
     href='/aftermath/friends'
     />
     <Menu.Item
+    active={'.'}
     name='Acknowledgments'
     href='/aftermath/acknowledgments'
     />
@@ -121,7 +154,7 @@ class Panel6AftermathPanel3 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

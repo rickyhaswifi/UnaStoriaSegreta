@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import {
-  Magnifier,
-  GlassMagnifier,
-  SideBySideMagnifier,
-  PictureInPictureMagnifier,
-  MOUSE_ACTIVATION,
-  TOUCH_ACTIVATION
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Menu, Message, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
-import HeroMuso from '../../../components/images/panels/prelude/hero-musso.jpg';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 
 // IMAGE IMPORTS // 
@@ -23,18 +17,23 @@ import PreImage18 from "../../../components/images/panels/prelude/Prelude-24-Ste
 
 class Panel1PreludePanelStab extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${PreImage15}`,
+        HeaderDetails:`This panel is named for Roosevelt’s statement in 1940 when Italy attacked France: “The hand that held the dagger has thrust it into the back of its neighbor.” Italian Americans resented how it played into the stereotype of Italian immigrants as knife-wielding criminals.
+        <br /><br />
+        Other items of interest are the copper postcard—bought by Italian Americans and sent to Italy to contribute copper to Italy’s war effort—and the stainless-steel ring worn by Italian immigrant women to replace their gold wedding bands sent to Italy for the same purpose. On the other side of the political spectrum was Carmelo Zito, who, in his newspaper, <span class='italic'>Il Corriere del Popolo</span>, ridiculed and castigated pro-Mussolini organs like <span class='italic'>L’Italia</span>. Zito would soon denounce L’Italia’s editor, Ettore Patrizi, as a leader of the pro-fascist movement in California (see Exclusion Panel).`,
+      },
+    ],
     panelDetail: [
       {
-        photo:`${PreImage15}`,
-        info:`This panel is named for Roosevelt’s statement in 1940 when Italy attacked France: “The hand that held the dagger has thrust it into the back of its neighbor.” Italian Americans resented how it played into the stereotype of Italian immigrants as knife-wielding criminals. Other items of interest are the copper postcard—bought by Italian Americans and sent to Italy to contribute copper to Italy’s war effort—and the stainless-steel ring worn by Italian immigrant women to replace their gold wedding bands sent to Italy for the same purpose. On the other side of the political spectrum was Carmelo Zito, who, in his newspaper, Il Corriere del Popolo, ridiculed and castigated pro-Mussolini organs like L’Italia. Zito would soon denounce L’Italia’s editor, Ettore Patrizi, as a leader of the pro-fascist movement in California (see Exclusion Panel).`,
-      },
-      {
         photo:`${PreImage14}`,
-        info:``,
+        info:`“The hand that held the dagger has thrust it into the back of its neighbor.”<br />
+        June 17th, 1940`,
       },
       {
         photo:`${PreImage16}`,
-        info:`Carmelo Zito’s socialist newspaper, Il Corriere del Popolo, engaged in running duels with Ettore Patrizi’s more pro-Mussolini L’Italia. Zito was a master of ridicule, which he here uses to mock the Italian attempt to put the celebration of Mussolini’s birthday on a par with that of Jesus Christ. Zito would later testify against Patrizi in the Tenney Committee hearings (see next panel and Section 5).`,
+        info:`Carmelo Zito’s socialist newspaper, <span class='italic'>Il Corriere del Popolo</span>, engaged in running duels with Ettore Patrizi’s more pro-Mussolini <span class='italic'>L’Italia</span>. Zito was a master of ridicule, which he here uses to mock the Italian attempt to put the celebration of Mussolini’s birthday on a par with that of Jesus Christ. Zito would later testify against Patrizi in the Tenney Committee hearings (see next panel and Section 5).`,
       }, 
       {
         photo:`${PreImage13}`,
@@ -48,20 +47,17 @@ class Panel1PreludePanelStab extends Component {
   }
   
   render() {
-    
     return (
       <>
     <PageContainer>
     <PageWrap>
+
     <PanelBanner style={{ background: `url(${PreImage15})` }}/>
-    <PanelTitle>Prelude To War :: Panels
+    <PanelTitle>Stab In The Back
+      <h2>Prelude To War :: Panels</h2>
     </PanelTitle>
-    <ParaPanel>
-      <p>Hover Images to see details</p>
-      
-    <PanelContentTitle>
-    Stab In The Back
-    </PanelContentTitle>
+
+    <DetailPanel>
 
     <Menu pointing secondary widths={4}>
     <Menu.Item
@@ -85,34 +81,61 @@ class Panel1PreludePanelStab extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
+          {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
           })}
+
       
       <Menu pointing secondary widths={4}>
     <Menu.Item
@@ -150,7 +173,7 @@ class Panel1PreludePanelStab extends Component {
     </CrumbRight>
     </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

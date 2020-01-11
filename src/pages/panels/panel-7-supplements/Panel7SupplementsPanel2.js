@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P2Sup1 from '../../../components/images/panels/supplement/P2Sup1.jpg';
@@ -31,11 +31,11 @@ class Panel7SupplementsPanel2 extends Component {
       },
       {
         photo:`${P2Sup4}`,
-        info:`Guido Trento’s Basic Personnel File, front (above) and back (below). Note that, like other early internees from California, Trento was registered as an internee (and had his hearing) in Fort Missoula, MT. The back of the document indicates that he was apprehended on December 8, 1941, the day after Pearl Harbor, and was shipped by train to Fort Missoula shortly thereafter. He was then transferred to the U.S. Army base at Fort Sam Houston, TX where he was received on April 14, 1942. He was next sent to Camp Forrest, TN and Fort McAlester, OK before being shipped back, with all Italian internees, to Fort Missoula on May 18, 1943.`,
+        info:`Guido Trento’s Basic Personnel File, front. Note that, like other early internees from California, Trento was registered as an internee (and had his hearing) in Fort Missoula, MT. The back of the document indicates that he was apprehended on December 8, 1941, the day after Pearl Harbor, and was shipped by train to Fort Missoula shortly thereafter. He was then transferred to the U.S. Army base at Fort Sam Houston, TX where he was received on April 14, 1942. He was next sent to Camp Forrest, TN and Fort McAlester, OK before being shipped back, with all Italian internees, to Fort Missoula on May 18, 1943.`,
       },
       {
         photo:`${P2Sup5}`,
-        info:``,
+        info:`Guido Trento’s Basic Personnel File (back).`,
       },
     ]
   }
@@ -46,13 +46,12 @@ class Panel7SupplementsPanel2 extends Component {
       <>
     <PageContainer>
     <PageWrap>
-    <PanelBanner style={{ background: `url(${P2Sup1})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
 
-    <PanelContentTitle>
-    Photos & Documents #2
-    </PanelContentTitle>
+    <PanelBanner style={{ background: `url(${P2Sup1})` }}/>
+    <PanelTitle>Photos & Documents #2
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -103,7 +102,7 @@ class Panel7SupplementsPanel2 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -111,22 +110,25 @@ class Panel7SupplementsPanel2 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -195,7 +197,7 @@ class Panel7SupplementsPanel2 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

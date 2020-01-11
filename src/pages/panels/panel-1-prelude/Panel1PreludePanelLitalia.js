@@ -1,54 +1,35 @@
 import React, { Component } from 'react';
 import {
-  Magnifier,
-  GlassMagnifier,
-  SideBySideMagnifier,
-  PictureInPictureMagnifier,
-  MOUSE_ACTIVATION,
-  TOUCH_ACTIVATION
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
-import HeroMuso from '../../../components/images/panels/prelude/hero-musso.jpg';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 
-import PreImage7 from "../../../components/images/panels/prelude/Prelude-16-YouretheTop.jpg";
-import PreImage8 from "../../../components/images/panels/prelude/Prelude-17-ItLegionltr.jpg";
-import PreImage9 from "../../../components/images/panels/prelude/Prelude-18-CasaFugazi.JPG";
 import PreImage10 from "../../../components/images/panels/prelude/Prelude-19-cWomen swords.JPG";
-import PreImage11 from "../../../components/images/panels/prelude/Prelude-19-Panel2.JPG";
-import PreImage12 from "../../../components/images/panels/prelude/Prelude-20-twogroup photos.JPG";
-import PreImage13 from "../../../components/images/panels/prelude/Prelude-20aPacificWarPeril.jpg";
-import PreImage14 from "../../../components/images/panels/prelude/Prelude-21-aMussoNewsweek.jpg";
-import PreImage15 from "../../../components/images/panels/prelude/Prelude-21-Panel3.jpg";
-import PreImage16 from "../../../components/images/panels/prelude/Prelude-22-IlCorriere.jpg";
-import PreImage17 from "../../../components/images/panels/prelude/Prelude-23-IlCorriere2.jpg";
 import PreImage18a from "../../../components/images/panels/prelude/Prellude-19a-LItalia.jpg";
 import PreImage19a from "../../../components/images/panels/prelude/Prelude-19-Panel2a.JPG";
-import PreImage18 from "../../../components/images/panels/prelude/Prelude-24-SteelRing.jpg";
-import PreImage19 from "../../../components/images/panels/prelude/Prelude-25-LittleCityNews.jpg";
-import PreImage20 from "../../../components/images/panels/prelude/Prelude-27-Panel4.jpg";
-import PreImage21 from "../../../components/images/panels/prelude/Prelude-28-USDeclareWar.jpg";
-import PreImage22 from "../../../components/images/panels/prelude/Prelude-29-ControlPress.jpg";
-import PreImage23 from "../../../components/images/panels/prelude/Prelude-30-War.jpg";
+import PreImage19 from "../../../components/images/panels/prelude/Prelude-19-Panel2.JPG";
 // IMAGE IMPORTS // 
 // END IMPORTS
 
 class Panel1PreludePanelLitalia extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${PreImage19}`,
+        HeaderDetails:`<span class='italic'>L’Italia</span> was the Italian American newspaper in San Francisco, and Ettore Patrizi was its editor and publisher. The issue shown here displays a comparison of Italy’s “puny” colony in Africa compared to the huge colonial empire of Great Britain. Patrizi would eventually be accused of being a fascist leader in the West, and excluded from California. The three fencers were students at the Italian School in Fugazi Hall in San Francisco. The school, two other photos of which are on this panel, was considered a fascist training ground and closed with the onset of war. Nella Panelli, who gave us the photo, is the young fencer in the center.`,
+      },
+    ],
     panelDetail: [
       {
-        photo:`${PreImage19}`,
-        info:`Mussolini was at first treated with near-adulation in the U.S. press. The Saturday Evening Post featured him in three successive issues in 1928. Cole Porter used him in his song, “You’re the Top,” while Time Magazine featured him on its cover, paired here with a Time cover of President Franklin Roosevelt, who at one point referred to him as “that admirable gentleman.” The Wall Street Journal had led the chorus in a 1923 poem depicted here, praising Mussolini as “a new Columbus” whose strong hand was guiding Italians to a new society of “will and work”.)`,
-      },
-      {
         photo:`${PreImage19a}`,
-        info:`Ettore Patrizi, editor and publisher of L’Italia, the Italian newspaper of California; the exterior of his San Francisco office is pictured in the bottom photo.`,
+        info:`Ettore Patrizi, editor and publisher of <span class='italic'>L’Italia</span>, the Italian newspaper of California; the exterior of his San Francisco office is pictured in the bottom photo.`,
       },
       {
         photo:`${PreImage18a}`,
-        info:`The August 1935 edition of L’Italia depicts the relative amounts of colonial territory held by other European powers compared to Italy’s, to defuse protests about Mussolini’s moves into Africa.
+        info:`The August 1935 edition of <span class='italic'>L’Italia</span> depicts the relative amounts of colonial territory held by other European powers compared to Italy’s, to defuse protests about Mussolini’s moves into Africa.
 
         `,
       },
@@ -61,20 +42,17 @@ class Panel1PreludePanelLitalia extends Component {
   }
   
   render() {
-    
     return (
       <>
     <PageContainer>
     <PageWrap>
+  
     <PanelBanner style={{ background: `url(${PreImage19})` }}/>
-    <PanelTitle>Prelude To War :: Panels
+    <PanelTitle>L'Italia
+      <h2>Prelude To War :: Panels</h2>
     </PanelTitle>
-    <ParaPanel>
-      
-    <PanelContentTitle>
-    L'Italia
-    </PanelContentTitle>
 
+    <DetailPanel>
     <Menu pointing secondary widths={4}>
     <Menu.Item
     name='Flags'
@@ -97,30 +75,56 @@ class Panel1PreludePanelLitalia extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
+          {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -162,7 +166,7 @@ class Panel1PreludePanelLitalia extends Component {
     </CrumbRight>
     </Crumbs>      
       
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

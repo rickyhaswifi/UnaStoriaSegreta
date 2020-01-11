@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Switch, Route } from 'react-router-dom';
 import "../styled-compoments/App.css";
 import Home from '../pages/home';
@@ -56,20 +56,41 @@ import Panel7SupplementsPanel7 from '../pages/panels/panel-7-supplements/Panel7S
 import Panel7SupplementsPanel8 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel8';
 import Panel7SupplementsPanel9 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel9';
 import Panel7SupplementsPanel10 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel10';
+import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
+// import { useBooleanKnob } from '@stardust-ui/docs-components';
 
-
+import MenuSidebar from '../components/shared/MenuSidebar';
 import Footer from "../components/shared/Footer";
 import Slide from 'react-reveal/Slide'; 
 
-const App = () => (
-  <>
-  <GlobalContianer>
-  <MenuNav />
+class App extends Component {
+  state = {
+    visible: false,
+  }
+  render() {
+    return(
+      <>
+{/* <Sidebar.Pushable as={GlobalContianer}>
+      <Sidebar
+        as={MenuSidebar}
+        animation='push'
+        icon='labeled'
+        inverted
+        visible= {false}
+        direction='right'
+        vertical
+        width='thin'
+      >
+        <MenuSidebar />
+      </Sidebar>
+      <Sidebar.Pusher> */}
+
+      <MenuNav />
+      <GlobalContianer>
   
   <Switch onUpdate={() => window.scrollTo(0, 0)}>
-    <Slide bottom>
+  <Slide bottom>
 
-    
 <Route exact path="/" component={Home} />
 <Route exact path="/contact" component={Contact} />
 
@@ -111,6 +132,7 @@ const App = () => (
 <Route exact path='/aftermath/proclamations' component={Panel6AftermathPanel4} />
 
 <Route exact path="/supplements" component={Panel7SupplementsPanel1} />
+<Route exact path="/supplements/1" component={Panel7SupplementsPanel1} />
 <Route exact path='/supplements/2' component={Panel7SupplementsPanel2} />  
 <Route exact path='/supplements/3' component={Panel7SupplementsPanel3} />  
 <Route exact path='/supplements/4' component={Panel7SupplementsPanel4} />  
@@ -125,8 +147,12 @@ const App = () => (
 
   </Switch>
   </GlobalContianer>
+      {/* </Sidebar.Pusher>
+    </Sidebar.Pushable> */}
   <Footer />
   </>
-)
+    )
+  }
+}
 
 export default App;

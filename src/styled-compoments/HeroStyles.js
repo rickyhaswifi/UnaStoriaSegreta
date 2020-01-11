@@ -62,16 +62,16 @@ export const HomeHeroTitle = styled.h1`
 margin:auto;
 color:var(--primaryGold);
 text-align: center;
-font-size:8em;
 white-space: nowrap;
 font-size:8vw;
 
 @media (max-width: 746px) {
+  /* MOB */
 font-size:11vw;
 }
 
 @media (min-width: 975px) {
-  font-size:11vw;
+  font-size:8vw;
 }
 
 `;

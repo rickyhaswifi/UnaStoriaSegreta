@@ -1,46 +1,33 @@
 import React, { Component } from 'react';
 import {
-  SideBySideMagnifier,
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P19Friends1 from '../../../components/images/panels/aftermath/P19Friends1.jpg'
 import P19Friends2 from '../../../components/images/panels/aftermath/P19Friends2.jpg'
 import P19Friends3 from '../../../components/images/panels/aftermath/P19Friends3.jpg'
-import P19Friends4 from '../../../components/images/panels/aftermath/P19Friends4.jpg'
-import P19Friends5 from '../../../components/images/panels/aftermath/P19Friends5.jpg'
-import P19Friends6 from '../../../components/images/panels/aftermath/P19Friends6.jpg'
 // END IMPORTS
 
 class Panel6AftermathPanel2 extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${P19Friends1}`,
+        HeaderDetails:`Too dangerous to be at large one moment; friends and allies the next: this was the progression for enemy aliens during the war years. In 1992, the Order Sons of Italy in America tried to get an apology from the U.S. Government for the wartime violations, but was met with general incomprehension and delay.`,
+      },
+    ],
     panelDetail: [
       {
-        photo:`${P19Friends1}`,
-        info:`Too dangerous to be at large one moment; friends and allies the next: this was the progression for enemy aliens during the war years. In 1992, the Order Sons of Italy in America tried to get an apology from the U.S. Government for the wartime violations, but was met with general incomprehension and delay.`,
-      },
-      {
         photo:`${P19Friends2}`,
-        info:`The 1990 Social Justice Commission of the Sons of Italy’s resolution asked for both full public disclosure of the injustices suffered by Italo-Americans, and an apology. Neither would be forthcoming, as the Assistant Attorney General in the Civil Rights Division makes clear in his letter—which mainly rehearses the redress given to Japanese Americans, as it compares their situation to the “relatively small number” of Germans and Italians affected. It would take another generation before the Unite States government would even “acknowledge” that these events happened.`,
+        info:`The 1990 Social Justice Commission of the Sons of Italy’s resolution asked for both full public disclosure of the injustices suffered by Italo-Americans, and an apology. Neither would be forthcoming, as the Assistant Attorney General in the Civil Rights Division makes clear in his letter—which mainly rehearses the redress given to Japanese Americans, as it compares their situation to the “relatively small number” of Germans and Italians affected. It would take another generation before the United States government would even “acknowledge” that these events happened.`,
       },
       {
         photo:`${P19Friends3}`,
         info:`The top document is a copy of the memo Attorney General Biddle ordered to be placed in the files of some internees and excludees. It ends with these words about the designation “potentially dangerous”, in bold letters: THIS CLASSIFICATION IS UNRELIABLE. IT IS HEREBY CANCELED AND SHOULD NOT BE USED AS A DETERMINATION OF DANGEROUSNESS OR OF ANY OTHER FACT.`,
-      },
-      {
-        photo:`${P19Friends4}`,
-        info:``,
-      },
-      {
-        photo:`${P19Friends5}`,
-        info:``,
-      },
-      {
-        photo:`${P19Friends6}`,
-        info:``,
       },
     ]
   }
@@ -52,21 +39,20 @@ class Panel6AftermathPanel2 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P19Friends1})` }}/>
-    <PanelTitle>Aftermath :: Panels</PanelTitle>
-    <ParaPanel>
+    <PanelTitle>Now We're Friends
+      <h2>Aftermath :: Panels</h2>
+    </PanelTitle>
 
-    <PanelContentTitle>
-    Now We're Friends
-    </PanelContentTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={4}>
     <Menu.Item
-    active={'.'}
     name="Restrictions Lifted"
     href='/aftermath/lifted'
     />
     <Menu.Item
-    name="Now We're Friends"
+    active={'.'}
+    name="Now We Are Friends"
     href='/aftermath/friends'
     />
     <Menu.Item
@@ -81,30 +67,57 @@ class Panel6AftermathPanel2 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
 
-        </Grid.Row>
-      </Grid>
+    {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
+
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -112,12 +125,12 @@ class Panel6AftermathPanel2 extends Component {
       
       <Menu pointing secondary widths={4}>
     <Menu.Item
-    active={'.'}
     name="Restrictions Lifted"
     href='/aftermath/lifted'
     />
     <Menu.Item
-    name="Now We're Friends"
+    active={'.'}
+    name="Now We Are Friends"
     href='/aftermath/friends'
     />
     <Menu.Item
@@ -146,7 +159,7 @@ class Panel6AftermathPanel2 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+</DetailPanel>
           
     </PageWrap>
     </PageContainer>

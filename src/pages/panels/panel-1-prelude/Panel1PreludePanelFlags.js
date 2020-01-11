@@ -1,43 +1,34 @@
 import React, { Component } from 'react';
 import {
-  Magnifier,
-  GlassMagnifier,
-  SideBySideMagnifier,
-  PictureInPictureMagnifier,
-  MOUSE_ACTIVATION,
-  TOUCH_ACTIVATION
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
-import HeroMuso from '../../../components/images/panels/prelude/hero-musso.jpg';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
+// IMAGE IMPORTS // 
 import PreImage1 from "../../../components/images/panels/prelude/Prelude-11-Panel1.jpg";
-import PreImage3 from "../../../components/images/panels/prelude/Prelude-12-Roosevelt.jpg";
 import PreImage4 from "../../../components/images/panels/prelude/Prelude-13-MussoRoos.jpg";
 import PreImage5 from "../../../components/images/panels/prelude/Prelude-14-threenewspapers.jpg";
 import PreImage6 from "../../../components/images/panels/prelude/Prelude-15-EveningPost.jpg";
-// IMAGE IMPORTS // 
 // END IMPORTS
 
 class Panel1PreludePanel extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${PreImage1}`,
+        HeaderDetails:`Mussolini was at first treated with near-adulation in the U.S. press. The <span class='italic'>Saturday Evening Post</span> featured him in three successive issues in 1928. Cole Porter used him in his song, “You’re the Top,” while Time Magazine featured him on its cover, paired here with a Time cover of President Franklin Roosevelt, who at one point referred to him as “that admirable gentleman.” <span class='italic'>The Wall Street Journal</span> had led the chorus in a 1923 poem depicted here, praising Mussolini as “a new Columbus” whose strong hand was guiding Italians to a new society of “will and work”.`,
+      },
+    ],
     panelDetail: [
-      {
-        photo:`${PreImage1}`,
-        info:`Mussolini was at first treated with near-adulation in the U.S. press. The <span class='italic'>Saturday Evening Post</span> featured him in three successive issues in 1928. Cole Porter used him in his song, “You’re the Top,” while Time Magazine featured him on its cover, paired here with a Time cover of President Franklin Roosevelt, who at one point referred to him as “that admirable gentleman.” <span class='italic'>The Wall Street Journal</span> had led the chorus in a 1923 poem depicted here, praising Mussolini as “a new Columbus” whose strong hand was guiding Italians to a new society of “will and work”.`,
-      },
-      {
-        photo:`${PreImage3}`,
-        info:``,
-      },
       {
         photo:`${PreImage4}`,
         info:`<span class='italic'>Time Magazine</span> devoted its covers to both Mussolini (April 8, 1940) and Roosevelt (June 10, 1940). The Roosevelt quote below refers to Mussolini as "that admirable gentleman": "I don't mind telling you that I am keeping in fairly close touch with that admirable gentleman."`,
       },
       {
         photo:`${PreImage5}`,
-        info:`These three issues of the 1928 <span class='italic'>Saturday Evening Post</span> (one of the most-popular weekly magazines of the time) featured excerpts from Mussolini's biograph on May 5, May 19, and June 2.`,
+        info:`These three issues of the 1928 <span class='italic'>Saturday Evening Post</span> (one of the most-popular weekly magazines of the time) featured excerpts from Mussolini's biography on May 5, May 19, and June 2.`,
       },
       {
         photo:`${PreImage6}`,
@@ -52,17 +43,13 @@ class Panel1PreludePanel extends Component {
       <>
     <PageContainer>
     <PageWrap>
+
     <PanelBanner style={{ background: `url(${PreImage1})` }}/>
-    <PanelTitle>Prelude To War :: Panels
+    <PanelTitle>FLAGS/MUSSOLINI
+      <h2>Prelude To War :: Panels</h2>
     </PanelTitle>
-    <ParaPanel>
-      <p>Hover Images to see details</p>
-      
-        <PanelContentTitle>
-          FLAGS/MUSSOLINI
-          </PanelContentTitle>
 
-
+    <DetailPanel>
     <Menu pointing secondary widths={4}>
     <Menu.Item
     name='Flags'
@@ -83,31 +70,59 @@ class Panel1PreludePanel extends Component {
     />
     </Menu>
 
-          <Message info>
+    <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          <div dangerouslySetInnerHTML={{__html: pDetail.info}} />
-          </p>
-          </Grid.Column>
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-        </Grid.Row>
-      </Grid>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
+
+    {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
+
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -149,7 +164,7 @@ class Panel1PreludePanel extends Component {
     </CrumbRight>
     </Crumbs>
       
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

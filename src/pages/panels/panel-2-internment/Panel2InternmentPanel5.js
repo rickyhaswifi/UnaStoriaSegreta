@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
 import {
-  SideBySideMagnifier,
+  SideBySideMagnifier,GlassMagnifier
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P9Deluca1 from '../../../components/images/panels/internment/P9-Deluca-1.jpg'
-import P9Deluca2 from '../../../components/images/panels/internment/P9-Deluca-2.jpg'
 import P9Deluca3 from '../../../components/images/panels/internment/P9-Deluca-3.jpg'
-import P9Deluca4 from '../../../components/images/panels/internment/P9-Deluca-4.jpg'
+
 
 // END IMPORTS
 
-class Panel2InternmentPanel1 extends Component {
+class Panel2InternmentPanel5 extends Component {
   state = {
+    panelHeader: [
+      {
+        photopanel:`${P9Deluca1}`,
+        HeaderDetails:`Pietro DeLuca was not formally interned, but was apprehended in New York and held at Ellis Island for possible internment. His wife wrote to Eleanor Roosevelt, and may have helped secure his release on parole. Ironically, his son, Joe, was kept in Italy during the war because of a similar suspicion of him for having American sympathies.`,
+      },
+    ],
     panelDetail: [
       {
-        photo:`${P9Deluca1}`,
-        info:`Pietro DeLuca was not formally interned, but was apprehended in New York and held at Ellis Island for possible internment. His wife wrote to Eleanor Roosevelt, and may have helped secure his release on parole. Ironically, his son, Joe, was kept in Italy during the war because of a similar suspicion of him for having American sympathies.`,
-      },
-      {
-        photo:`${P9Deluca2}`,
-        info:`It is not clear if the FBI knew that Pietro DeLuca had fled Italy after his break with the Fascists made his life dangerous there, but they apprehended him after Pearl Harbor and detained him on Ellis Island. Mrs. DeLuca wrote to Eleanor Roosevelt to plead his case, after which DeLuca was paroled on the condition that he study to become an American citizen. His son, Joe, was held hostage in Italy until 1946 when he joined his family in the U.S.`,
-      },
-      {
         photo:`${P9Deluca3}`,
-        info:``,
-      },
-      {
-        photo:`${P9Deluca4}`,
-        info:``,
+        info:`It is not clear if the FBI knew that Pietro DeLuca had fled Italy after his break with the Fascists made his life dangerous there, but they apprehended him after Pearl Harbor and detained him on Ellis Island. Mrs. DeLuca wrote to Eleanor Roosevelt to plead his case, after which DeLuca was paroled on the condition that he study to become an American citizen. His son, Joe, was held hostage in Italy until 1946 when he joined his family in the U.S.
+
+        `,
       },
     ]
   }
@@ -42,14 +37,13 @@ class Panel2InternmentPanel1 extends Component {
       <>
     <PageContainer>
     <PageWrap>
-    <PanelBanner style={{ background: `url(${P9Deluca1})` }}/>
-    <PanelTitle>Internment :: Panels
-    </PanelTitle>
-    <ParaPanel>
 
-    <PanelContentTitle>
-    Deluca
-    </PanelContentTitle>
+    <PanelBanner style={{ background: `url(${P9Deluca1})` }}/>
+    <PanelTitle>DeLuca
+      <h2>Internment :: Panels</h2>
+    </PanelTitle>
+
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -77,30 +71,57 @@ class Panel2InternmentPanel1 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover panel to see details
     </Message.Header>
     </Message>
+<section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
 
-      {this.state.panelDetail.map(pDetail => {
-      return (
-      <section key={`${pDetail.id}`} className="">
+<PanelContentTitle>
+  Panel Details
+</PanelContentTitle>
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+<Message info>
+<Message.Header>
+<Icon name='magnify'/>Hover image to see details
+</Message.Header>
+</Message>
 
-        </Grid.Row>
-      </Grid>
+    {/* END HEADER LOOP START DETAILS */}
+    {this.state.panelDetail.map(pDetail => {
+    return (
+    <section key={`${pDetail.id}`}>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+    <GlassMagnifier 
+    imageSrc={pDetail.photo}
+    />
+     </Grid.Column>
+
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -146,7 +167,7 @@ class Panel2InternmentPanel1 extends Component {
     </CrumbRight>
     </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>
@@ -155,4 +176,4 @@ class Panel2InternmentPanel1 extends Component {
   }
 }
 
-export default Panel2InternmentPanel1;
+export default Panel2InternmentPanel5;

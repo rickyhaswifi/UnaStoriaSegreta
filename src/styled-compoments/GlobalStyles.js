@@ -9,13 +9,23 @@ export const GlobalContianer = styled.section`
 }
 
 .ui.doubling.two.column.grid{
-  margin-top:8em;
-  margin-bottom:8em !important;
+  margin-top:4em;
+  margin-bottom:4em !important;
 }
 
 .ui.modal{
-  margin:auto;
+position: absolute !important;
+  margin-top:4em !important;
   width:95vw !important;
+}
+
+.ui.segment {
+  font-size: 1.3rem;
+  justify-content: center;
+  letter-spacing:0.002em;
+  line-height:1.58em;
+  text-align:justify;
+  text-align-last:left;
 }
 
 .ui.inverted.yellow.button{
@@ -23,9 +33,16 @@ export const GlobalContianer = styled.section`
 }
 
 .italic{
-  color:var(--primaryHeader);
+  color:var(--primaryBlack);
   font-style: italic;
   font-weight:bold;
+  background-image: linear-gradient(to top, rgba(6,133,160,0.3) 50%, rgba(255,0,0,0) 50%);
+  width: auto;
+  display: inline;
+}
+
+.hidden{
+  display:none;
 }
 
 h1{
@@ -54,7 +71,7 @@ h3{
 p{
   padding: 1.5em 0em;
   justify-content: center;
-  letter-spacing:-0.004em;
+  letter-spacing:0.004em;
   line-height:1.58em;
   font-size: 18px;
   font-family: 'Raleway', sans-serif;

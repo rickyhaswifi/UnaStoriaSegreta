@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
   SideBySideMagnifier,
 } from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon } from "semantic-ui-react";
+import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P5Sup1 from '../../../components/images/panels/supplement/P5Sup1.jpg';
@@ -22,19 +22,19 @@ class Panel7SupplementsPanel5 extends Component {
     panelDetail: [
       {
         photo:`${P5Sup1}`,
-        info:``,
-      },
-      {
-        photo:`${P5Sup2}`,
         info:`This April 9, 1942 draft memo from Attorney General Francis Biddle to President Roosevelt addresses the “morale problem” the AG sees in the military’s growing demands to extend West Coast “prohibited zones” to the much more populous East Coast. The Attorney General notes that “There is a possibility of disaffecting seventeen million persons through thoughtfulness” (he clearly meant ‘thoughtlessness.’) He concludes this section with the stunning statement that “Hitler himself could not have achieved a result so desirable,” e.g., turning millions of loyal German- and Italian-Americans against the U.S. war effort.`,
       },
       {
+        photo:`${P5Sup2}`,
+        info:`Memo from Attorney General Francis Biddle to President Roosevelt (Continued)`,
+      },
+      {
         photo:`${P5Sup3}`,
-        info:`Nicky Buccellato of Pittsburg, with his mother, Catherine Buccellato. Nicky was one of those sons of enemy aliens in the military who came home on leave to find his home empty. While he had been serving his country, his mother was forced to leave her Pittsburg home (virtually the whole town was in the “prohibited zone”) and move to migrant worker shacks in nearby Oakley (photo below).`,
+        info:`Nicky Buccellato of Pittsburg, with his mother, Catherine Buccellato. Nicky was one of those sons of enemy aliens in the military who came home on leave to find his home empty.`,
       },
       {
         photo:`${P5Sup4}`,
-        info:``,
+        info:`While he had been serving his country, his mother was forced to leave her Pittsburg home (virtually the whole town was in the “prohibited zone”) and move to migrant worker shacks in nearby Oakley.`,
       },
       {
         photo:`${P5Sup5}`,
@@ -62,12 +62,10 @@ class Panel7SupplementsPanel5 extends Component {
     <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${P5Sup6})` }}/>
-    <PanelTitle>Supplements :: Panels</PanelTitle>
-    <ParaPanel>
-
-    <PanelContentTitle>
-    Photos & Documents #5
-    </PanelContentTitle>
+    <PanelTitle>Photos & Documents #5
+      <h2>Supplements</h2>
+    </PanelTitle>
+    <DetailPanel>
 
     <Menu pointing secondary widths={5}>
     <Menu.Item
@@ -118,7 +116,7 @@ class Panel7SupplementsPanel5 extends Component {
 
     <Message info>
     <Message.Header>
-    Hover Images to see details
+    <Icon name='info circle'/>Hover images to see details
     </Message.Header>
     </Message>
 
@@ -126,22 +124,25 @@ class Panel7SupplementsPanel5 extends Component {
       return (
       <section key={`${pDetail.id}`} className="">
 
-      <Grid doubling stackable>
-        <Grid.Row>
-          <Grid.Column>
-          <SideBySideMagnifier 
-          alwaysInPlace='false'
-          imageSrc={pDetail.photo}
-          largeImageSrc={pDetail.photo} 
-          overlayOpacity={0.5}
-          />
-          <p>
-          {pDetail.info}
-          </p>
-          </Grid.Column>
+ <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <Grid.Row>
+     <Grid.Column>
+   <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
+    />
+     </Grid.Column>
 
-        </Grid.Row>
-      </Grid>
+     <Grid.Column>
+<Segment color='blue'>
+    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
+</Segment>
+     </Grid.Column>
+
+   </Grid.Row>
+ </Grid>
 
       </section>
             );
@@ -210,7 +211,7 @@ class Panel7SupplementsPanel5 extends Component {
   </CrumbRight>
 </Crumbs>
 
-    </ParaPanel>
+    </DetailPanel>
           
     </PageWrap>
     </PageContainer>

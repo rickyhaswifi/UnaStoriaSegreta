@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import PanelBlur from '../components/images/panels/shared/panelblur.jpg';
 
+// CONTAINER START
+
 export const ParaPanel = styled.section`
 @media (max-width: 800px) {
 /* MOB */
@@ -25,6 +27,33 @@ margin:auto;
 }
 
 `;
+
+export const DetailPanel = styled.section`
+@media (max-width: 800px) {
+/* MOB */
+width:90% !important;
+margin:auto;
+}
+
+@media (max-width: 1080px) {
+/* TAB */
+width:80%;
+margin:auto;
+}
+
+@media (min-width: 1080px) {   
+/* DESK */
+padding:2em;
+/* left:0%;
+overflow: scroll;
+/* padding:10px; */
+width:70%;
+margin:auto;
+}
+
+`;
+
+// CONTAINER END
 
 export const PanelBanner = styled.section`
 &::before{
@@ -65,8 +94,11 @@ margin-bottom:.75em;
 `;
 
 export const PanelContentTitle = styled.h1`
+margin-top:40px;
 text-align:center;
 font-size:4em;
+text-decoration:underline;
+padding-bottom:2px;
 color:var(--primaryHeader);
 @media (max-width: 1080px) {
 /* TAB */
@@ -153,4 +185,18 @@ export const CrumbRight = styled.a`
 color:var(--primaryBlack) !important;
 float: right;
 padding:10px;
+`;
+
+export const Caption = styled.section`
+min-height: 1em;
+background: #f8f8f9;
+padding: 1em 1.5em;
+line-height: 1.4285em;
+color: rgba(0,0,0,.87);
+border-radius: .28571429rem;
+box-shadow: 0 0 0 1px rgba(34,36,38,.22) inset, 0 0 0 0 transparent;
+`;
+
+export const Null = styled.section`
+visibility: hidden;
 `;
