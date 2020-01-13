@@ -6,16 +6,16 @@ import Fade from 'react-reveal/Reveal';
 const HomeHeroBanner = () => (
   <>
   <HeroTextCont>
-    <HomeHeroSub>
-      <Fade left>
-      WHEN ITALIAN AMERICANS WERE “ENEMY ALIENS”
-      </Fade>
-    </HomeHeroSub>
     <HomeHeroTitle>
       <Fade right>
       Una Storia Segreta
       </Fade>
     </HomeHeroTitle>
+    <HomeHeroSub>
+      <Fade left>
+      WHEN ITALIAN AMERICANS WERE “ENEMY ALIENS”
+      </Fade>
+    </HomeHeroSub>
     {/* <HomeHeroSub>
       <Fade left>
     The American Italian Historical Association Presents

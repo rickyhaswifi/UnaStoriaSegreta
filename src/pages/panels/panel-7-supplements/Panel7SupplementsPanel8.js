@@ -20,7 +20,7 @@ class Panel7SupplementsPanel8 extends Component {
     panelDetail: [
       {
         photo:`${P8Sup1}`,
-        info:`In 1997, <span class='italic'>Una Storia Segreta</span> was mounted on easels in Washington, DC and displayed around the main hall in the Rayburn House Office Building. The display was coordinated with the introduction of the bill, the Wartime Violation of Italian American Civil Liberties Act, that would take another three years to pass.`,
+        info:`In 1997, <span class='italic'>Una Storia Segreta</span> was mounted on easels in Washington, DC and displayed around the main hall in the Rayburn House Office Building. The display was coordinated with the introduction of the bill, <span class='italic'>The Wartime Violation of Italian American Civil Liberties Act</span>, that would take another three years to pass.`,
       },
       {
         photo:`${P8Sup2}`,
@@ -32,11 +32,11 @@ class Panel7SupplementsPanel8 extends Component {
       },
       {
         photo:`${P8Sup4}`,
-        info:`Rose Scudero of Pittsburg CA, Rep. Henry Hyde, and Project Director Lawrence DiStasi photographed after the Judiciary Committee hearings. The bill—the Wartime Violation of Italian American Civil Liberties Act—was presented to President Bill Clinton a year later in October. He signed it into Public Law #106-451 on Nov. 7, 2000.`,
+        info:`Rose Scudero of Pittsburg CA, Rep. Henry Hyde, and Project Director Lawrence DiStasi photographed after the Judiciary Committee hearings. The bill—<span class='italic'>The Wartime Violation of Italian American Civil Liberties Act</span>—was presented to President Bill Clinton a year later in October. He signed it into Public Law #106-451 on Nov. 7, 2000.`,
       },
       {
         photo:`${P8Sup5}`,
-        info:`Copy of Public Law 106-451, The Wartime Violation of Italian American Civil Liberties Act, calling for a Report by the Attorney General.`,
+        info:`Copy of Public Law 106-451, <span class='italic'>The Wartime Violation of Italian American Civil Liberties Act</span>, calling for a Report by the Attorney General.`,
       },
       {
         photo:`${P8Sup6}`,

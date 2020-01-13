@@ -3,6 +3,7 @@ import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
 import { Icon, Grid } from 'semantic-ui-react'
 import HeroCamp from '../../../components/images/panels/internment/camp-hero.jpg';
+import Slide from 'react-reveal/Slide'; 
 
 class Panel7Supplements extends Component {
   state = {
@@ -62,6 +63,8 @@ return (
 <PageWrap>
 
 <PanelBanner style={{ background: `url(${HeroCamp})` }}/>
+<Slide bottom>
+
   <PanelTitle>Supplemental Photos & Documents</PanelTitle>
 <ParaPanel>
 
@@ -110,6 +113,7 @@ href={pButton.link}
 </Crumbs>
 
 </ParaPanel>
+</Slide>
 </PageWrap>
 </PageContainer>
 </>

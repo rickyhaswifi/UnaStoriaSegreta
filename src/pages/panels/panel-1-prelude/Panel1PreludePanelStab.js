@@ -22,14 +22,13 @@ class Panel1PreludePanelStab extends Component {
         photopanel:`${PreImage15}`,
         HeaderDetails:`This panel is named for Roosevelt’s statement in 1940 when Italy attacked France: “The hand that held the dagger has thrust it into the back of its neighbor.” Italian Americans resented how it played into the stereotype of Italian immigrants as knife-wielding criminals.
         <br /><br />
-        Other items of interest are the copper postcard—bought by Italian Americans and sent to Italy to contribute copper to Italy’s war effort—and the stainless-steel ring worn by Italian immigrant women to replace their gold wedding bands sent to Italy for the same purpose. On the other side of the political spectrum was Carmelo Zito, who, in his newspaper, <span class='italic'>Il Corriere del Popolo</span>, ridiculed and castigated pro-Mussolini organs like <span class='italic'>L’Italia</span>. Zito would soon denounce L’Italia’s editor, Ettore Patrizi, as a leader of the pro-fascist movement in California (see Exclusion Panel).`,
+        Other items of interest are the copper postcard—bought by Italian Americans and sent to Italy to contribute copper to Italy’s war effort—and the stainless-steel ring worn by Italian immigrant women to replace their gold wedding bands sent to Italy for the same purpose. On the other side of the political spectrum was Carmelo Zito, who, in his newspaper, <span class='italic'>Il Corriere del Popolo</span>, ridiculed and castigated pro-Mussolini organs like <span class='italic'>L’Italia</span>.`,
       },
     ],
     panelDetail: [
       {
         photo:`${PreImage14}`,
-        info:`“The hand that held the dagger has thrust it into the back of its neighbor.”<br />
-        June 17th, 1940`,
+        info:`Newsweek’s June 17, 1940 issue transformed Mussolini’s image into that of a ‘backstabber’ who has ‘Unsheathed his sword for the Axis.`,
       },
       {
         photo:`${PreImage16}`,
@@ -115,16 +114,21 @@ class Panel1PreludePanelStab extends Component {
     {this.state.panelDetail.map(pDetail => {
     return (
     <section key={`${pDetail.id}`}>
- <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
    <Grid.Row>
      <Grid.Column>
-    <GlassMagnifier 
+    
+     <SideBySideMagnifier 
+    alwaysInPlace='false'
     imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
     />
+
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>

@@ -46,7 +46,7 @@ class Panel6AftermathPanel3 extends Component {
     href='/aftermath/lifted'
     />
     <Menu.Item
-    name="Now We're Friends"
+    name="Now We Are Friends"
     href='/aftermath/friends'
     />
     <Menu.Item
@@ -100,13 +100,18 @@ class Panel6AftermathPanel3 extends Component {
  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
    <Grid.Row>
      <Grid.Column>
-    <GlassMagnifier 
+    
+     <SideBySideMagnifier 
+    alwaysInPlace='false'
     imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
     />
+
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>
@@ -124,7 +129,7 @@ class Panel6AftermathPanel3 extends Component {
     href='/aftermath/lifted'
     />
     <Menu.Item
-    name="Now We're Friends"
+    name="Now We Are Friends"
     href='/aftermath/friends'
     />
     <Menu.Item

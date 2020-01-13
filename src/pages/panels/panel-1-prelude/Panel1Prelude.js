@@ -3,6 +3,7 @@ import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { ParaPanel, Quote, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
 import { Icon, Grid } from 'semantic-ui-react'
 import HeroMuso from '../../../components/images/panels/prelude/hero-musso.jpg';
+import Slide from 'react-reveal/Slide'; 
 
 class Panel1Prelude extends Component {
   state = {
@@ -37,6 +38,7 @@ class Panel1Prelude extends Component {
     <PageWrap>
 
 <PanelBanner style={{ background: `url(${HeroMuso})` }}/>
+<Slide bottom>
 <PanelTitle>Prelude To War</PanelTitle>
 <ParaPanel>
 
@@ -112,6 +114,7 @@ href={pButton.link}
 </Crumbs>
 
 </ParaPanel>
+</Slide>
 
 
 

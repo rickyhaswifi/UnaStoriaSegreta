@@ -17,7 +17,7 @@ class Panel4EvacuationPanel2 extends Component {
     panelHeader: [
       {
         photopanel:`${P13Abono1}`,
-        HeaderDetails:`The panel shows a <span class='italic'>San Francisco Chronicle</span> article featuring Placido Abono, a 97-year-old so frail he had to leave his home on a stretcher. It also features two articles about suicides: a February 17, 1942 San Francisco Chronicle article recounting the suicide of Stefano Terranova, who leaped from his building in the city. Another, on February 12, recounted the suicide of fisherman Joseph Mecheli of Vallejo, despondent that he would have to move from his home.`,
+        HeaderDetails:`The panel shows a <span class='italic'>San Francisco Chronicle</span> article featuring Placido Abono, a 97-year-old so frail he had to leave his home on a stretcher. It also features two articles about suicides: a February 17, 1942 <span class='italic'>San Francisco Chronicle</span> article recounting the suicide of Stefano Terranova, who leaped from his building in the city. Another, on February 12, recounted the suicide of fisherman Joseph Mecheli of Vallejo, despondent that he would have to move from his home.`,
       },
     ],
     panelDetail: [
@@ -106,13 +106,18 @@ class Panel4EvacuationPanel2 extends Component {
  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
    <Grid.Row>
      <Grid.Column>
-    <GlassMagnifier 
+    
+     <SideBySideMagnifier 
+    alwaysInPlace='false'
     imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
     />
+
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>

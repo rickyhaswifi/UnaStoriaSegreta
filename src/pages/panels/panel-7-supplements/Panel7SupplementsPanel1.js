@@ -5,10 +5,11 @@ import {
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import Slide from 'react-reveal/Slide'; 
 
 // IMAGE IMPORTS // 
 import P1Sup1 from '../../../components/images/panels/supplement/P1Sup1.jpg';
-import P1Sup2 from '../../../components/images/panels/supplement/P1Sup2.jpg';
+import P1Sup2 from '../../../components/images/panels/supplement/P1Sup2a.jpg';
 import P1Sup3 from '../../../components/images/panels/supplement/P1Sup3.jpg';
 import P1Sup4 from '../../../components/images/panels/supplement/P1Sup4.jpg';
 import P1Sup5 from '../../../components/images/panels/supplement/P1Sup5.jpg';
@@ -18,19 +19,16 @@ import P1Sup7 from '../../../components/images/panels/supplement/P1Sup7.jpg';
 
 class Panel7SupplementsPanel1 extends Component {
   state = {
+    panelHeader: [
+      {HeaderDetails: `
+    In 1994, the Western Chapter of the American Italian Historical Association produced an exhibit it called “<span class='italic'>Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens.’</span>” The exhibit opened at the Museo Italo Americano on February 24, 1994 in commemoration of the evacuation deadline on that same date in 1942. The exhibit was an immediate sensation, and began what would turn out to be more than twenty years of travel to more than fifty different sites around the nation.`,
+    photopanel:P1Sup1,
+  },
+  ],
     panelDetail: [
       {
-        photo:`${P1Sup1}`,
-        info:`
-        The photos and documents that appear in <span class='italic'>Una Storia Segreta</span> were gathered when the exhibit was mounted in late 1993 and 1994. Since that time, additional information, materials, documents and photographs have been discovered through research and from informants. It is those that we here add to the formal exhibit to supplement and support that which <span class='italic'>Una Storia Segreta</span> first brought to public attention. And given that no historical record can ever be complete, we are confident that there will be more to add in the coming years. 
-        <br /><br />
-        For now, though, we are pleased to present the supplemental information gathered below to fill out some of the gaps in our original presentation. They are presented in roughly the same order with which we designed our exhibit—beginning with the exhibit Opening on February 24, 1994, and then going through the six sections: Prelude to War, Internment, Restrictions, Evacuation, Exclusion, and ending with Aftermath. Though it is not always possible, we try to indicate in captions which section of the original exhibit they relate to.
-        <br /><br />
-        In 1994, the Western Chapter of the American Italian Historical Association produced an exhibit it called “<span class='italic'>Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens.’</span>” The exhibit opened at the Museo Italo Americano on February 24, 1994 in commemoration of the evacuation deadline on that same date in 1942. The exhibit was an immediate sensation, and began what would turn out to be more than twenty years of travel to more than fifty different sites around the nation.`,
-      },
-      {
         photo:`${P1Sup2}`,
-        info:`All aliens were required by law to register with the government in accordance with the 1940 Alien Registration Act (often known as the Smith Act). Each alien was given the above card to carry as proof of having registered. Because of this, we called the registration of enemy aliens in 1942 a “re-registration,” since the government already had information about aliens via the 1940 law.`,
+        info:`All aliens were required by law to register with the government in accordance with the 1940 Alien Registration Act (often known as the Smith Act). Each alien was given the card to carry as proof of having registered. Because of this, we called the registration of enemy aliens in 1942 a “re-registration,” since the government already had information about aliens via the 1940 law.`,
       },
       {
         photo:`${P1Sup3}`,
@@ -42,11 +40,11 @@ class Panel7SupplementsPanel1 extends Component {
       },
       {
         photo:`${P1Sup5}`,
-        info:`Prospero Cecconi’s Basic PersonInnel Record, showing his April 21, 1942 transfer, upon the formal internment order, to the Prisoner of War Enclosure at Angel Island CA, in San Francisco Bay. It was at this military facility that the "PMG Form 2 seen was generated". This and other similar records on internees are kept in the National Archives military section in College Park, Maryland, or NARA II.`,
+        info:`Prospero Cecconi’s Basic PersonInnel Record, showing his April 21, 1942 transfer, upon the formal internment order, to the Prisoner of War Enclosure at Angel Island CA, in San Francisco Bay. It was at this military facility that the "PMG Form 2" seen was generated. This and other similar records on internees are kept in the National Archives military section in College Park, Maryland, or NARA II.`,
       },
       {
         photo:`${P1Sup6}`,
-        info:`The above items were presented in a display case for the original <span class='italic'>Una Storia Segreta</span> exhibit at San Francisco’s Museo Italo Americano in 1994. This display included letters from internee Carmelo Ilacqua to his wife Bruna, a telegram to her, various records from Ilacqua’s FBI file, and the battered briefcase in which his wife stored the records.`,
+        info:`The items were presented in a display case for the original <span class='italic'>Una Storia Segreta</span> exhibit at San Francisco’s Museo Italo Americano in 1994. This display included letters from internee Carmelo Ilacqua to his wife Bruna, a telegram to her, various records from Ilacqua’s FBI file, and the battered briefcase in which his wife stored the records.`,
       },
       {
         photo:`${P1Sup7}`,
@@ -60,7 +58,9 @@ class Panel7SupplementsPanel1 extends Component {
       <>
     <PageContainer>
     <PageWrap>
-    <PanelBanner style={{ background: `url(${P1Sup1})` }}/>
+    <PanelBanner style={{ background: `url(${P1Sup3})` }}/>
+    <Slide bottom>
+
     <PanelTitle>Photos & Documents #1
       <h2>Supplements</h2>
     </PanelTitle>
@@ -120,11 +120,36 @@ class Panel7SupplementsPanel1 extends Component {
     </Message.Header>
     </Message>
 
+    <section>
+    {this.state.panelHeader.map(pHeader => {
+    return (
+    <section key={`${pHeader.id}`}>
+      <p>
+      The photos and documents that appear in <span class='italic'>Una Storia Segreta</span> were gathered when the exhibit was mounted in late 1993 and 1994. Since that time, additional information, materials, documents and photographs have been discovered through research and from informants. It is those that we here add to the formal exhibit to supplement and support that which <span class='italic'>Una Storia Segreta</span> first brought to public attention. And given that no historical record can ever be complete, we are confident that there will be more to add in the coming years. 
+    <br /><br />
+    For now, though, we are pleased to present the supplemental information gathered below to fill out some of the gaps in our original presentation. They are presented in roughly the same order with which we designed our exhibit—beginning with the exhibit Opening on February 24, 1994, and then going through the six sections: Prelude to War, Internment, Restrictions, Evacuation, Exclusion, and ending with Aftermath. Though it is not always possible, we try to indicate in captions which section of the original exhibit they relate to.
+      </p>
+    <SideBySideMagnifier 
+    alwaysInPlace='false'
+    imageSrc={pHeader.photopanel}
+    largeImageSrc={pHeader.photopanel} 
+    overlayOpacity={0.5}
+    />
+    <Segment>
+    <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
+    </Segment>
+      </section>
+            );
+          })}
+</section>
+
       {this.state.panelDetail.map(pDetail => {
       return (
       <section key={`${pDetail.id}`} className="">
 
  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
+   <p>
+   </p>
    <Grid.Row>
      <Grid.Column>
    <SideBySideMagnifier 
@@ -213,6 +238,7 @@ class Panel7SupplementsPanel1 extends Component {
 
     </DetailPanel>
           
+    </Slide>
     </PageWrap>
     </PageContainer>
       </>

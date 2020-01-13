@@ -45,7 +45,7 @@ class Panel4EvacuationPanel4 extends Component {
     <PageWrap>
     <PanelBanner style={{ background: `url(${P15Evacuation1})` }}/>
     <PanelTitle>Evacuation
-      <h2>Restrictions :: Panels</h2>
+      <h2>Evacuation :: Panels</h2>
     </PanelTitle>
 
     <DetailPanel>
@@ -110,13 +110,18 @@ class Panel4EvacuationPanel4 extends Component {
  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
    <Grid.Row>
      <Grid.Column>
-    <GlassMagnifier 
+    
+     <SideBySideMagnifier 
+    alwaysInPlace='false'
     imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
     />
+
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>

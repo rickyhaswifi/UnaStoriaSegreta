@@ -25,7 +25,7 @@ class Panel7SupplementsPanel7 extends Component {
       },
       {
         photo:`${P7Sup3}`,
-        info:"The back cover of the exhibit Catalog, listing the six sites where the exhibit was shown in its first year. Click on <a href='/supplements/exhibit'>Exhibit Appearances</a> below for a listing.",
+        info:"The back cover of the exhibit Catalog, listing the six sites where the exhibit was shown in its first year. Click on <a href='/supplements/exhibit'>Exhibit Appearances</a> below for a full listing.",
       },
     ]
   }

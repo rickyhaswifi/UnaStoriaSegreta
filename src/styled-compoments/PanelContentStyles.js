@@ -4,24 +4,14 @@ import PanelBlur from '../components/images/panels/shared/panelblur.jpg';
 // CONTAINER START
 
 export const ParaPanel = styled.section`
-@media (max-width: 800px) {
+  width:90%;
+  margin:auto;
+@media (min-width: 800px) {
 /* MOB */
-width:100%;
-margin:auto;
-}
-
-@media (max-width: 1080px) {
-/* TAB */
-width:70%;
-margin:auto;
 }
 
 @media (min-width: 1080px) {   
 /* DESK */
-padding:2em;
-/* left:0%;
-overflow: scroll;
-/* padding:10px; */
 width:50%;
 margin:auto;
 }
@@ -141,11 +131,11 @@ margin:auto;
 text-transform:uppercase;
 justify-content: center;
 align-items: center;
-font-size:1.3em;
+font-size:1.1em;
 color:white;
 background: url(${PanelBlur});
 border-radius:var(--borderCurve);
-letter-spacing:1px;
+letter-spacing:2px;
 transition: .2s box-shadow, letter-spacing, color;
 &:hover{
   box-shadow: 10px 10px 0px 0px rgba(1, 133, 164, 1);
@@ -155,13 +145,13 @@ transition: .2s box-shadow, letter-spacing, color;
 }
 
 height:250px;
-width:175px;
+width:225px;
 
 @media (max-width: 769px) {
 /* MOB */
 font-size:.8em;
 height:225px;
-width:125px;
+width:155px;
 }
 `;
 

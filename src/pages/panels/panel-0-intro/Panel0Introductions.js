@@ -6,12 +6,15 @@ import { Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import {SideBySideMagnifier} from "react-image-magnifiers";
 import IntroHero from "../../../components/images/panels/intro/intro-hero.jpg";
+import Slide from 'react-reveal/Slide'; 
 
 const Panel0Introductions = () => (
   <>
   <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${IntroHero})` }}/>
+    <Slide bottom>
+
   <PanelTitle>Introduction</PanelTitle>
 <ParaPanel>
 
@@ -60,6 +63,7 @@ Don’t speak the enemy’s language. Speak American!
 </Crumbs>
 
 </ParaPanel>
+    </Slide>
 </PageWrap>
 </PageContainer>
   </>

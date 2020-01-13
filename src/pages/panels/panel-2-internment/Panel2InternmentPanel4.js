@@ -19,21 +19,21 @@ class Panel2InternmentPanel4 extends Component {
     panelHeader: [
       {
         photopanel:`${P8Ezio1}`,
-        HeaderDetails:`Ezio Pinza was the first bass at the Metropolitan Opera when he was informed on by a rival bass. The FBI then apprehended him and imprisoned him at Ellis Island. The singer was formally ordered to be interned after his first hearing, but his wife Doris managed to get him a second hearing, where Pinza cleared himself. Ironically, Pinza, almost interned as a “dangerous” enemy alien, was asked to sing the National Anthem at the parade in New York city celebrating the end of the war. He later became a national celebrity.`,
+        HeaderDetails:`Ezio Pinza was the first bass at the Metropolitan Opera when he was informed on by a rival bass. The FBI then apprehended him and detained him at Ellis Island. The singer was formally ordered to be interned after his first hearing, but his wife Doris managed to get him a second hearing, where Pinza cleared himself. Ironically, Pinza, almost interned as a “dangerous” enemy alien, was asked to sing the National Anthem at the parade in New York city celebrating the end of the war. He later became a national celebrity.`,
       },
     ],
     panelDetail: [
       {
         photo:`${P8Ezio6}`,
-        info:`Pinza’s apprehension as an enemy alien was reported on the front page of the March 13, 1942 New York Times. The report states that the singer was due to go on a long concert tour the following week. He had earlier registered as an ‘enemy alien’ and was required to carry the Certificate of Identification shown above.`,
+        info:`Pinza’s apprehension as an enemy alien was reported on the front page of the March 13, 1942 New York Times. The report states that the singer was due to go on a long concert tour the following week. He had earlier registered as an ‘enemy alien’ and was required to carry the Certificate of Identification shown below.`,
       },
       {
         photo:`${P8Ezio5}`,
-        info:`Pinza’s release on parole after eleven weeks in confinement as was reported in the June 8 New York Times. His parole order is shown at the top, as well statements from three of his famous supporters: Thomas Mann, Bruno Walter, and Carlo Tresca.`,
+        info:`Pinza’s release on parole after eleven weeks in confinement as was reported in the June 8 <span class='italic'>New York Times</span>. His parole order is shown at the top, as well statements from three of his famous supporters: Thomas Mann, Bruno Walter, and Carlo Tresca.`,
       },
       {
         photo:`${P8Ezio2}`,
-        info:`Pinza became a national icon when he starred with Mary Martin in the smash Broadway hit, South Pacific. His hit song, “Some Enchanted Evening,” led the Hit Parade for weeks.`,
+        info:`Pinza became a national icon when he starred with Mary Martin in the smash Broadway hit, <span class='italic'>South Pacific</span>. His hit song, “Some Enchanted Evening,” led the Hit Parade for weeks.`,
       },
       {
         photo:`${P8Ezio8}`,
@@ -120,13 +120,18 @@ class Panel2InternmentPanel4 extends Component {
  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
    <Grid.Row>
      <Grid.Column>
-    <GlassMagnifier 
+    
+     <SideBySideMagnifier 
+    alwaysInPlace='false'
     imageSrc={pDetail.photo}
+    largeImageSrc={pDetail.photo} 
+    overlayOpacity={0.5}
     />
+
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>

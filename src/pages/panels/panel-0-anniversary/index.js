@@ -3,12 +3,14 @@ import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { PanelBanner, ParaPanel, Quote, PanelTitle, Crumbs, CrumbLeft, CrumbRight} from '../../../styled-compoments/PanelContentStyles';
 import { Icon } from 'semantic-ui-react'
 import Gate from "../../../components/images/home/gates.jpg";
+import Slide from 'react-reveal/Slide'; 
 
 const Panel0Anniversary = () => (
   <>
   <PageContainer>
     <PageWrap>
     <PanelBanner style={{ background: `url(${Gate})` }}/>
+  <Slide bottom>
   <PanelTitle>20TH ANNIVERSARY: LOOKING BACK</PanelTitle>
 <ParaPanel>
 <Quote>
@@ -40,8 +42,8 @@ WHEN ITALIAN AMERICANS WERE ‘ENEMY ALIENS’
 	<Icon name='angle right' /> 
   </CrumbRight>
 </Crumbs>
-
 </ParaPanel>
+  </Slide>
 </PageWrap>
 </PageContainer>
   </>

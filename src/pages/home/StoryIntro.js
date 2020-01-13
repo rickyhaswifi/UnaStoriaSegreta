@@ -13,7 +13,7 @@ const StoryIntro = () => (
     </StoryHeroSub>
   </StorySec>
   <StoryP>
-  On February 24, 1994, the exhibit Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens’ opened at the Museo Italo Americano in San Francisco. The opening on February 24 memorialized the date in 1942 when enemy aliens of Italian descent living in recently-designated “prohibited zones” on the West Coast had to leave their homes and businesses in those zones and move elsewhere.
+  On February 24, 1994, the exhibit <span className='italic'>Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens’</span> opened at the Museo Italo Americano in San Francisco. The opening on February 24 memorialized the date in 1942 when enemy aliens of Italian descent living in recently-designated “prohibited zones” on the West Coast had to leave their homes and businesses in those zones and move elsewhere.
   <br />
   <br />
   <Link to='/anniversary'>

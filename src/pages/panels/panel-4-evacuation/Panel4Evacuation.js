@@ -3,6 +3,7 @@ import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
 import { Icon, Grid } from 'semantic-ui-react'
 import HeroEvac from '../../../components/images/panels/evacuation/HeroEvacuation.jpg';
+import Slide from 'react-reveal/Slide'; 
 
 class Panel4Evacuation extends Component {
   state = {
@@ -13,12 +14,12 @@ class Panel4Evacuation extends Component {
         link:'/evacuations/pittsburg',
       },
       {
-        name:"Abono & Suicides",
+        name:"Abono/Suicides",
         image:'',
         link:'/evacuations/abono',
       },
       {
-        name:"Fishing Is The Fighting Food",
+        name:"Fishing Is A Fighting Food",
         image:'',
         link:'/evacuations/fishing',
       },
@@ -37,6 +38,8 @@ return (
 <PageWrap>
 
 <PanelBanner style={{ background: `url(${HeroEvac})` }}/>
+<Slide bottom>
+
   <PanelTitle>Evacuation</PanelTitle>
 <ParaPanel>
 
@@ -101,6 +104,7 @@ href={pButton.link}
 </Crumbs>
 
 </ParaPanel>
+</Slide>
 </PageWrap>
 </PageContainer>
 </>

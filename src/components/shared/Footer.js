@@ -94,7 +94,7 @@ class Footer extends Component {
           </Menu.Item>
 
         <Menu.Item>
-          <FooterLink href="/supplements/exhibit">Appearances</FooterLink>
+          <FooterLink href="/supplements">Supplements</FooterLink>
           </Menu.Item>
 
           <Menu.Item>

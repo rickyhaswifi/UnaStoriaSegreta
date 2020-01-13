@@ -61,7 +61,6 @@ import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
 import MenuSidebar from '../components/shared/MenuSidebar';
 import Footer from "../components/shared/Footer";
-import Slide from 'react-reveal/Slide'; 
 
 class App extends Component {
   state = {
@@ -88,9 +87,7 @@ class App extends Component {
       <MenuNav />
       <GlobalContianer>
   
-  <Switch onUpdate={() => window.scrollTo(0, 0)}>
-  <Slide bottom>
-
+  <Switch>
 <Route exact path="/" component={Home} />
 <Route exact path="/contact" component={Contact} />
 
@@ -143,7 +140,6 @@ class App extends Component {
 <Route exact path='/supplements/exhibit' component={Panel7SupplementsPanel9} />  
 <Route exact path='/supplements/bibliography' component={Panel7SupplementsPanel10} /> 
   {/* <Route component={NoMatch} /> */}
-  </Slide>
 
   </Switch>
   </GlobalContianer>

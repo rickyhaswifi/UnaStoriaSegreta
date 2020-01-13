@@ -87,7 +87,7 @@ class Panel7SupplementsPanel10 extends Component {
     href='/supplements/8'
     />
     <Menu.Item
-    name='Exhibit'
+    name='Exhibit Appearances'
     href='/supplements/exhibit'
     />
     <Menu.Item
@@ -165,7 +165,7 @@ class Panel7SupplementsPanel10 extends Component {
     href='/supplements/8'
     />
     <Menu.Item
-    name='Exhibit'
+    name='Exhibit Appearances'
     href='/supplements/exhibit'
     />
     <Menu.Item

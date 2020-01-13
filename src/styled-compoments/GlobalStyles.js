@@ -33,10 +33,10 @@ position: absolute !important;
 }
 
 .italic{
-  color:var(--primaryBlack);
+  /* color:var(--primaryBlack); */
   font-style: italic;
-  font-weight:bold;
-  background-image: linear-gradient(to top, rgba(6,133,160,0.3) 50%, rgba(255,0,0,0) 50%);
+  font-weight:bold !important;
+  background-image: linear-gradient(to top, rgba(256,256,31,0.2) 50%, rgba(255,0,0,0) 50%);
   width: auto;
   display: inline;
 }
@@ -76,6 +76,7 @@ p{
   font-size: 18px;
   font-family: 'Raleway', sans-serif;
   text-align:justify;
+word-spacing:-2px;
   text-align-last:left;
 }
 

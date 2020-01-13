@@ -3,6 +3,7 @@ import {PageContainer, PageWrap} from '../../styled-compoments/PanelStyle';
 import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle, Quote} from '../../styled-compoments/PanelContentStyles';
 import { Grid, Form, Icon, Button, TextArea, Card } from 'semantic-ui-react'
 import HeroSup from '../../components/images/panels/supplement/P7Sup1.jpg';
+import Slide from 'react-reveal/Slide'; 
 
 class Contact extends Component {
   render() {
@@ -11,13 +12,14 @@ class Contact extends Component {
       <PageContainer>
         <PageWrap>
         <PanelBanner style={{ background: `url(${HeroSup})` }}/>
+        <Slide bottom>
       <PanelTitle>Contact Us</PanelTitle>
     <ParaPanel>
           <PanelContentTitle>
             About Us...
           </PanelContentTitle>
           <p>
-          On February 24, 1994, the exhibit Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens’ opened at the Museo Italo Americano in San Francisco. The opening on February 24 memorialized the date in 1942 when enemy aliens of Italian descent living in recently-designated “prohibited zones” on the West Coast had to leave their homes and businesses in those zones and move elsewhere. For the first time, any viewer with access to the internet can see in detail this pathbreaking exhibit that changed the accepted narrative of WWII on the home front.
+          On February 24, 1994, the exhibit <span className='italic'>Una Storia Segreta: When Italian Americans Were ‘Enemy Aliens’</span> opened at the Museo Italo Americano in San Francisco. The opening on February 24 memorialized the date in 1942 when enemy aliens of Italian descent living in recently-designated “prohibited zones” on the West Coast had to leave their homes and businesses in those zones and move elsewhere. For the first time, any viewer with access to the internet can see in detail this pathbreaking exhibit that changed the accepted narrative of WWII on the home front.
           </p>
     <Grid doubling stackable columns={2}>
       <Grid.Row>
@@ -27,7 +29,7 @@ class Contact extends Component {
         <p>
           Support Una Storia Segreta with your financial donation. 
         </p>
-        <Button.Group size='huge' color='blue'>
+        <Button.Group size='large' color='blue'>
       
 
      <Button animated='vertical'>
@@ -66,11 +68,12 @@ class Contact extends Component {
           <form 
           className='ui form'
           name="contact" 
-          method="POST" 
-          data-netlify="true"
-          data-netlify-honeypot='bot-field'
+          method="post" 
+          data-netlify="true" 
+          data-netlify-honeypot="bot-field"
           >
 
+        <input type="hidden" name="form-name" value="contact" />
 
         <div className="field">
         <label>Full Name</label>
@@ -84,10 +87,10 @@ class Contact extends Component {
 
         <div class="field">
         <label>Message</label>
-        <textarea placeholder='Your Question/Request'></textarea>
+        <textarea name='message' placeholder='Your Question/Request'></textarea>
         </div>
 
-          <Button animated='vertical' primary type='submit'>
+          <Button animated='vertical' primary type='submit' style={{width: '100%'}}>
       <Button.Content visible>
       <Icon name='mail outline' size='large'/>
       </Button.Content>
@@ -131,6 +134,7 @@ Web Development: Ricardo Bautista
 </Quote>
 
     </ParaPanel>
+        </Slide>
     </PageWrap>
     </PageContainer>
       </>
