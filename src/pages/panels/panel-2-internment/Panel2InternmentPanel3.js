@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SideBySideMagnifier,GlassMagnifier
-} from "react-image-magnifiers";
+import {SideBySideMagnifier} from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';

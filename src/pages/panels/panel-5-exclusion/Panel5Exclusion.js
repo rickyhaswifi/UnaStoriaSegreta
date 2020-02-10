@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
+import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
 import { Icon, Grid } from 'semantic-ui-react'
 import HeroCamp from '../../../components/images/panels/internment/camp-hero.jpg';
 import Slide from 'react-reveal/Slide'; 
@@ -9,7 +9,7 @@ class Panel5Exclusion extends Component {
   state = {
     panelButton: [
       {
-        name:"Tenney Committe",
+        name:"Tenney Committee",
         image:'',
         link:'/exclusion/tenney',
       },
@@ -38,9 +38,9 @@ return (
 
 <p>In the Fall of 1942&mdash;after the Italians had been removed from the enemy alien classification&mdash;254 Italian and German naturalized citizens received exclusion orders. These orders gave them ten days to move out of the designated zones in coastal areas. Most were German and Italian immigrants and West Coast residents, but some lived on the eastern and southern coasts of the United States.</p>
 
-<p>In San Francisco, about two dozen Italian Americans, both men and women, were excluded. They were community leaders, Italian-language school instructors, staff of the pro-Mussolini Italian-language newspaper, L&rsquo;Italia, and members of the Italian War veterans. Most were long-time residents of the city and had been naturalized for many years.</p>
+<p>In San Francisco, about two dozen Italian Americans, both men and women, were excluded. They were community leaders, Italian-language school instructors, staff of the pro-Mussolini Italian-language newspaper, <span class='italic'>L&rsquo;Italia</span>, and members of the Italian War veterans. Most were long-time residents of the city and had been naturalized for many years.</p>
 
-<p>What led to the selection of these specific individuals for exclusion? The community leaders and L&rsquo;Italia staff had been named as pro-fascist by witnesses before the State Assembly&rsquo;s UnAmerican Activities Committee at hearings held in San Francisco in May of 1942. The hearings were held in the Borgia Room of the St. Francis Hotel, the irony of which none of the senators seemed to recognize. The Tenney Committee&mdash;named after its chair, state Assemblyman Jack Tenney&mdash;concluded, after four days of testimony, that three community leaders, Sylvester Andriano, Ettore Patrizi, and Renzo Turco, were &ldquo;the leaders of the Fascist movement in California.&rdquo; They further concluded that Patrizi&rsquo;s newspaper, L&rsquo;Italia, and the Italian-language school, DopoScuola, were centers of Fascist propaganda. Some of these names had previously been brought to the attention of the FBI, but it had made no arrests of any naturalized citizens.</p>
+<p>What led to the selection of these specific individuals for exclusion? The community leaders and <span class='italic'>L&rsquo;Italia</span> staff had been named as pro-fascist by witnesses before the State Assembly&rsquo;s UnAmerican Activities Committee at hearings held in San Francisco in May of 1942. The hearings were held in the Borgia Room of the St. Francis Hotel, the irony of which none of the senators seemed to recognize. The Tenney Committee&mdash;named after its chair, state Assemblyman Jack Tenney&mdash;concluded, after four days of testimony, that three community leaders, Sylvester Andriano, Ettore Patrizi, and Renzo Turco, were &ldquo;the leaders of the Fascist movement in California.&rdquo; They further concluded that Patrizi&rsquo;s newspaper, <span class='italic'>L&rsquo;Italia</span>, and the Italian-language school, DopoScuola, were centers of Fascist propaganda. Some of these names had previously been brought to the attention of the FBI, but it had made no arrests of any naturalized citizens.</p>
 
 <p>In September the Army acted. It held individual hearings similar to those for the internees&mdash;no charges were provided, no legal counsel was allowed. Then it served exclusion orders on those selected, commanding each individual to move out of Military Zones 1 and 2, which covered about two-thirds of California. Ettore Patrizi, 77 years old and a U.S. resident and naturalized citizen since 1899, received his exclusion order while hospitalized. Andriano and Turco, both attorneys, had to vacate their homes and law offices, and were unable to practice law where they relocated. Nino Guttadauro, president of the Italian War Veterans and business manager of the Crab Fishermen&rsquo;s Association, left San Francisco to find work and housing for his family, which he eventually found in Reno, Nevada, the nearest city with available jobs.</p>
 

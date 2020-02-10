@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import {PanelBanner, PanelCTA, PanelText, PanelImage, PanelDetail, PanelButton, Horizontal, PanelContent} from '../../styled-compoments/PanelFeatureStyles';
+import {PanelBanner, PanelCTA, PanelText, PanelImage, PanelDetail, Horizontal, PanelContent} from '../../styled-compoments/PanelFeatureStyles';
 import Fade from 'react-reveal/Fade'; 
 import IntroHero from "../../components/images/panels/intro/intro-hero2.jpg";
 import HeroMusso from "../../components/images/panels/prelude/hero-musso.jpg";

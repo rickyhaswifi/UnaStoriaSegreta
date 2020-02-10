@@ -28,7 +28,14 @@ export const MobileOnlyResponse = styled.section`
 `;
 
 export const DeskOnlyResponse = styled.section`
+position: relative;
 @media (min-width: 769px) {
   display:none;
 }
+`;
+
+export const FixMobile = styled.section`
+position: sticky !important;
+bottom:0 !important;
+z-index:2;
 `;

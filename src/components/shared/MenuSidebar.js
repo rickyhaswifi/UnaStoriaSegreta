@@ -1,7 +1,5 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react';
-import { AllResponsive, MobileOnlyResponse, DeskOnlyResponse } from '../../styled-compoments/ResponsiveStyles';
-import { Grid, Button, Modal, Icon, Menu, } from 'semantic-ui-react'
+import { Icon, } from 'semantic-ui-react'
 import { OverlayMenu, OvTitle, OvItem, CloseIcon } from "../../styled-compoments/OverlayMenuStyles";
 import Slide from 'react-reveal/Slide';
 
@@ -49,21 +47,20 @@ class MenuSidebar extends Component {
    }
 
   render() {
-    const { open, dimmer, } = this.state
+    const { close } = this.props
 
     return (
       <>
         <OverlayMenu> 
-        <Slide bottom cascade>
-          <CloseIcon><Icon name='window close outline' /></CloseIcon>
+          <Slide bottom cascade>
+          <CloseIcon><Icon name='window close outline'
+          onClick={close}
+          /></CloseIcon>
           <OvTitle
           href='/'
           >
           UNA STORIA SEGRETA
           </OvTitle>
-        <Grid columns={2} doubling>
-        <Grid.Row>
-        <Grid.Column>
 
           <div className="">
           {this.state.panelNav.map(panelLink => {
@@ -78,25 +75,15 @@ class MenuSidebar extends Component {
             );
           })}
         </div>
-         
-        </Grid.Column>
-        <Grid.Column>
+        
         <OvItem
           href='/contact'
           >
           Contact
           </OvItem>
-          {/* <OvItem>
-          About
-          </OvItem>
-          <OvItem>
-          Donate
-          </OvItem> */}
-        </Grid.Column>
-        </Grid.Row>
-        </Grid>
-        </Slide>
+          </Slide>
         </OverlayMenu>
+
       </>
     )
   }

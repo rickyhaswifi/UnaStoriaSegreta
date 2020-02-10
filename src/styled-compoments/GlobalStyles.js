@@ -36,13 +36,9 @@ position: absolute !important;
   /* color:var(--primaryBlack); */
   font-style: italic;
   font-weight:bold !important;
-  background-image: linear-gradient(to top, rgba(256,256,31,0.2) 50%, rgba(255,0,0,0) 50%);
+  /* background-image: linear-gradient(to top, rgba(256,256,31,0.2) 50%, rgba(255,0,0,0) 50%);
   width: auto;
-  display: inline;
-}
-
-.hidden{
-  display:none;
+  display: inline; */
 }
 
 h1{
@@ -95,6 +91,10 @@ a{
 *::-moz-selection {
   color:var(--primaryGold);
   background: #002E49;
+}
+
+.ui.small.segments, .segment {
+    font-size: .92857143rem !important;
 }
 
 `;

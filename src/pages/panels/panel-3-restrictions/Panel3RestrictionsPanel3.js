@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import {
-  SideBySideMagnifier,GlassMagnifier
-} from "react-image-magnifiers";
-import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
+import {SideBySideMagnifier} from "react-image-magnifiers";
+import { Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner,} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P12Dont1 from '../../../components/images/panels/restrictions/P12Dont1.jpg'
@@ -79,46 +77,6 @@ class Panel3RestrictionsPanel2 extends Component {
           })}
 </section>
 
-{/* <PanelContentTitle>
-  Panel Details
-</PanelContentTitle>
-
-<Message info>
-<Message.Header>
-<Icon name='magnify'/>Hover image to see details
-</Message.Header>
-</Message> */}
-
-    {/* END HEADER LOOP START DETAILS */}
-    {/* {this.state.panelDetail.map(pDetail => {
-    return (
-    <section key={`${pDetail.id}`}>
-  <Grid doubling stackable columns={2} verticalAlign='middle' centered>
-   <Grid.Row>
-     <Grid.Column>
-    
-     <SideBySideMagnifier 
-    alwaysInPlace='false'
-    imageSrc={pDetail.photo}
-    largeImageSrc={pDetail.photo} 
-    overlayOpacity={0.5}
-    />
-
-     </Grid.Column>
-
-     <Grid.Column>
-<Segment color='blue' size='small'>
-    <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
-</Segment>
-     </Grid.Column>
-
-   </Grid.Row>
- </Grid>
-
-      </section>
-            );
-          })}
-       */}
     <Menu pointing secondary widths={3}>
     <Menu.Item
     name="Notice To Aliens"

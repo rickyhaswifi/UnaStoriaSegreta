@@ -4,7 +4,7 @@ import {
 } from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner,} from '../../../styled-compoments/PanelContentStyles';
 import Slide from 'react-reveal/Slide'; 
 
 // IMAGE IMPORTS // 
@@ -40,7 +40,7 @@ class Panel7SupplementsPanel1 extends Component {
       },
       {
         photo:`${P1Sup5}`,
-        info:`Prospero Cecconi’s Basic PersonInnel Record, showing his April 21, 1942 transfer, upon the formal internment order, to the Prisoner of War Enclosure at Angel Island CA, in San Francisco Bay. It was at this military facility that the "PMG Form 2" seen was generated. This and other similar records on internees are kept in the National Archives military section in College Park, Maryland, or NARA II.`,
+        info:`Prospero Cecconi’s Basic Personnel Record, showing his April 21, 1942 transfer, upon the formal internment order, to the Prisoner of War Enclosure at Angel Island CA, in San Francisco Bay. It was at this military facility that the "PMG Form 2" seen was generated. This and other similar records on internees are kept in the National Archives military section in College Park, Maryland, or NARA II.`,
       },
       {
         photo:`${P1Sup6}`,
@@ -135,7 +135,7 @@ class Panel7SupplementsPanel1 extends Component {
     largeImageSrc={pHeader.photopanel} 
     overlayOpacity={0.5}
     />
-    <Segment>
+    <Segment size='small'>
     <div dangerouslySetInnerHTML={{__html: pHeader.HeaderDetails}}/>
     </Segment>
       </section>
@@ -161,7 +161,7 @@ class Panel7SupplementsPanel1 extends Component {
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SideBySideMagnifier,GlassMagnifier
-} from "react-image-magnifiers";
+import {SideBySideMagnifier} from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
@@ -9,15 +7,7 @@ import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, Pa
 // IMAGE IMPORTS // 
 import P10Notice1 from '../../../components/images/panels/restrictions/P10Notice1.jpg'
 import P10Notice2 from '../../../components/images/panels/restrictions/P10Notice2.jpg'
-import P10Notice3 from '../../../components/images/panels/restrictions/P10Notice3.jpg'
-import P10Notice4 from '../../../components/images/panels/restrictions/P10Notice4.jpg'
-import P10Notice5 from '../../../components/images/panels/restrictions/P10Notice5.jpg'
-import P10Notice6 from '../../../components/images/panels/restrictions/P10Notice6.jpg'
 import P10Notice7 from '../../../components/images/panels/restrictions/P10Notice7.jpg'
-import P10Notice8 from '../../../components/images/panels/restrictions/P10Notice8.jpg'
-import P10Notice9 from '../../../components/images/panels/restrictions/P10Notice9.jpg'
-import P10Notice10 from '../../../components/images/panels/restrictions/P10Notice10.jpg'
-import P10Notice11 from '../../../components/images/panels/restrictions/P10Notice11.jpg'
 import P10Notice12 from '../../../components/images/panels/restrictions/P10Notice12.jpg'
 import P10Notice13 from '../../../components/images/panels/restrictions/P10Notice13.jpg'
 // END IMPORTS
@@ -33,7 +23,7 @@ class Panel3RestrictionsPanel1 extends Component {
     panelDetail: [
       {
         photo:`${P10Notice13}`,
-        info:`Travel permit for Caterina Cardinale. Even though she was forced to move by government order, Cardinale still had to obtain this travel permit to move from her home in Pittburg to Centreville farther south.`,
+        info:`Travel permit for Caterina Cardinale. Even though she was forced to move by government order, Cardinale still had to obtain this travel permit to move from her home in Pittsburg to Centreville farther south.`,
       },
       {
         photo:`${P10Notice2}`,

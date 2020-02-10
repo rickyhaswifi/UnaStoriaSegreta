@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SideBySideMagnifier,GlassMagnifier
-} from "react-image-magnifiers";
+import {SideBySideMagnifier} from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
@@ -18,7 +16,7 @@ class Panel1PreludePanel extends Component {
     panelHeader: [
       {
         photopanel:`${PreImage1}`,
-        HeaderDetails:`Mussolini was at first treated with near-adulation in the U.S. press. The <span class='italic'>Saturday Evening Post</span> featured him in three successive issues in 1928. Cole Porter used him in his song, “You’re the Top,” while Time Magazine featured him on its cover, paired here with a Time cover of President Franklin Roosevelt, who at one point referred to him as “that admirable gentleman.” <span class='italic'>The Wall Street Journal</span> had led the chorus in a 1923 poem depicted here, praising Mussolini as “a new Columbus” whose strong hand was guiding Italians to a new society of “will and work”.`,
+        HeaderDetails:`Mussolini was at first treated with near-adulation in the U.S. press. The <span class='italic'>Saturday Evening Post</span> featured him in three successive issues in 1928. Cole Porter used him in his song, “You’re the Top,” while <span class='italic'>Time Magazine</span> featured him on its cover, paired here with a Time cover of President Franklin Roosevelt, who at one point referred to him as “that admirable gentleman.” <span class='italic'>The Wall Street Journal</span> had led the chorus in a 1923 poem depicted here, praising Mussolini as “a new Columbus” whose strong hand was guiding Italians to a new society of “will and work”.`,
       },
     ],
     panelDetail: [

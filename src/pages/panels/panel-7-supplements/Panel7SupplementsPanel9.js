@@ -4,7 +4,7 @@ import {
 } from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P8Sup1 from '../../../components/images/panels/supplement/P8Sup1.jpg';

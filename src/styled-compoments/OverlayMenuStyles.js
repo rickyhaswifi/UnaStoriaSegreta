@@ -2,19 +2,29 @@ import styled from 'styled-components';
 
 export const OverlayMenu = styled.section`
 background:var(--redGradient);
-/* position: absolute; */
+position: relative;
 width:100%;
-right:0;
-/* z-index:9999 !important; */
-min-height:90vh;
+min-height:100vh;
 padding:2em !important;
-/* visibility: hidden; */
+text-align:left;
 `;
 
 export const CloseIcon = styled.section`
 position: absolute;
-top:30px;
-right:30px;
+
+@media (min-width: 950px) {
+/* DESK */
+top:25px;
+right:25px;
+}
+
+@media (max-width: 950px) {
+/* MOBILE */
+bottom:65px;
+right:45%;
+}
+
+
 font-size:40px;
 color: var(--primaryText);
 transition: .5s color;
@@ -25,6 +35,7 @@ transition: .5s color;
 
 export const OvTitle = styled.a`
 font-size:24px;
+width:100%;
 margin:0;
 font-family: 'Girassol', cursive !important;
 text-transform: uppercase;
@@ -39,7 +50,7 @@ export const OvItem = styled.a`
 white-space: nowrap;
 padding: .5em .5em .5em 0 !important;
 text-align:left;
-font-size:2.3em;
+font-size:1.8em;
 text-transform:uppercase;
 letter-spacing:2px;
 font-weight:800 !important;
@@ -49,7 +60,7 @@ margin-bottom:.2em;
 color:white;
 transition: .3s font-size, letter-spacing, margin-left, content;
 &:hover{
-  font-size:2.6em;
+  font-size:2em;
   letter-spacing:2px;
   margin-left:10px;
   color:var(--primaryGold);

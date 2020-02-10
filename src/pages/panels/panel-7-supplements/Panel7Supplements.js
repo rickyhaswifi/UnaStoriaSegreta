@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight,PanelSub, GalleryContainer, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
+import { ParaPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, ViewPanelButton, ViewPanelSection} from '../../../styled-compoments/PanelContentStyles';
 import { Icon, Grid } from 'semantic-ui-react'
 import HeroCamp from '../../../components/images/panels/internment/camp-hero.jpg';
 import Slide from 'react-reveal/Slide'; 

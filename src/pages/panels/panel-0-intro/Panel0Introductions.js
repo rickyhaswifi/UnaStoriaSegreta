@@ -1,10 +1,7 @@
 import React from 'react';
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { PanelBanner, ParaPanel, Quote, Horizontal, PanelTitle, Crumbs, CrumbLeft, CrumbRight} from '../../../styled-compoments/PanelContentStyles';
-import { PanelImageFeature } from '../../../styled-compoments/PanelImageStyles';
+import { PanelBanner, ParaPanel, Quote, PanelTitle, Crumbs, CrumbLeft, CrumbRight} from '../../../styled-compoments/PanelContentStyles';
 import { Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
-import {SideBySideMagnifier} from "react-image-magnifiers";
 import IntroHero from "../../../components/images/panels/intro/intro-hero.jpg";
 import Slide from 'react-reveal/Slide'; 
 

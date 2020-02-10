@@ -6,7 +6,7 @@ import MenuNav from '../components/shared/MenuNav';
 import {GlobalContianer} from '../styled-compoments/GlobalStyles';
 
 import Contact from '../pages/contact';
-import NoMatch from '../pages/nomatch';
+// import NoMatch from '../pages/nomatch';
 
 import Panel0Introductions from '../pages/panels/panel-0-intro/Panel0Introductions';
 import Panel0Anniversary from '../pages/panels/panel-0-anniversary';
@@ -45,7 +45,6 @@ import Panel6AftermathPanel2 from '../pages/panels/panel-6-aftermath/Panel6After
 import Panel6AftermathPanel3 from '../pages/panels/panel-6-aftermath/Panel6AftermathPanel3';
 import Panel6AftermathPanel4 from '../pages/panels/panel-6-aftermath/Panel6AftermathPanel4';
 
-import Panel7Supplements from '../pages/panels/panel-7-supplements/Panel7Supplements';
 import Panel7SupplementsPanel1 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel1';
 import Panel7SupplementsPanel2 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel2';
 import Panel7SupplementsPanel3 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel3';
@@ -56,8 +55,10 @@ import Panel7SupplementsPanel7 from '../pages/panels/panel-7-supplements/Panel7S
 import Panel7SupplementsPanel8 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel8';
 import Panel7SupplementsPanel9 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel9';
 import Panel7SupplementsPanel10 from '../pages/panels/panel-7-supplements/Panel7SupplementsPanel10';
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
-// import { useBooleanKnob } from '@stardust-ui/docs-components';
+import { Menu, Sidebar } from 'semantic-ui-react';
+
+// ANALYTICS
+import ReactGA from 'react-ga';
 
 import MenuSidebar from '../components/shared/MenuSidebar';
 import Footer from "../components/shared/Footer";
@@ -66,25 +67,40 @@ class App extends Component {
   state = {
     visible: false,
   }
-  render() {
+render() {
+  const {visible} = this.state
+  
+  this.toggleSidebar = () => {
+    this.setState({
+      visible: !visible
+    });
+  }
+
+  ReactGA.initialize('UA-156571139-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
     return(
+      
       <>
-{/* <Sidebar.Pushable as={GlobalContianer}>
+<Sidebar.Pushable as={Route}>
       <Sidebar
-        as={MenuSidebar}
-        animation='push'
+        as={Menu}
+        animation='overlay'
         icon='labeled'
         inverted
-        visible= {false}
-        direction='right'
         vertical
-        width='thin'
+        onHide={() => this.setState({visible: false})}
+        visible = {visible}
+        width='wide'
       >
-        <MenuSidebar />
+        <MenuSidebar
+        close={() => this.setState({visible: false})}
+        />
       </Sidebar>
-      <Sidebar.Pusher> */}
+      <Sidebar.Pusher>
 
-      <MenuNav />
+      <MenuNav
+       toggleSidebar = {this.toggleSidebar}
+      />
       <GlobalContianer>
   
   <Switch>
@@ -143,9 +159,9 @@ class App extends Component {
 
   </Switch>
   </GlobalContianer>
-      {/* </Sidebar.Pusher>
-    </Sidebar.Pushable> */}
   <Footer />
+      </Sidebar.Pusher>
+    </Sidebar.Pushable>
   </>
     )
   }

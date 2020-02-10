@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SideBySideMagnifier,GlassMagnifier
-} from "react-image-magnifiers";
+import {SideBySideMagnifier} from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
@@ -16,7 +14,7 @@ class Panel1PreludePanelWar extends Component {
     panelHeader: [
       {
         photopanel:`${PreImage20}`,
-        HeaderDetails:`The War Panel depicts the news on December 7, 1941, when Japanese air and naval forces attacked the United States at Pearl Harbor. President Roosevelt quickly declared war on the Axis powers: on Japan on December 8, and on Germany and Italy on December 11. Two days before Pearl Harbor, on December 5, the <span class='italic'>San Francisco Call Bulletin</span> featured an article reporting on accusations that the Italian-language school in North Beach was dominated by Mussolini, and was <span class='italic'>L’Italia</span>, whose editor, Ettore Patrizi, was pro-fascist. The hearings where these charges were aired were the first phase of the Tenney Committee Hearings that would resume in May (see Panel 15).`,
+        HeaderDetails:`The War Panel depicts the news on December 7, 1941, when Japanese air and naval forces attacked the United States at Pearl Harbor. President Roosevelt quickly declared war on the Axis powers: on Japan on December 8, and on Germany and Italy on December 11. Two days before Pearl Harbor, on December 5, the <span class='italic'>San Francisco Call Bulletin</span> featured an article reporting on accusations that the Italian-language school in North Beach was dominated by Mussolini, as was <span class='italic'>L’Italia</span>, whose editor, Ettore Patrizi, was pro-fascist. The hearings where these charges were aired were the first phase of the Tenney Committee Hearings that would resume in May (see Panel 15).`,
       },
     ],
     panelDetail: [

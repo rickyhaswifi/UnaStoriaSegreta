@@ -1,12 +1,9 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react';
-import { AllResponsive, MobileOnlyResponse, DeskOnlyResponse } from '../../styled-compoments/ResponsiveStyles';
-import { Grid, Button, Modal, Icon, Menu, } from 'semantic-ui-react'
-import { OverlayMenu, OvTitle, OvItem } from "../../styled-compoments/OverlayMenuStyles";
-import Slide from 'react-reveal/Slide';
+import { MobileOnlyResponse, DeskOnlyResponse, FixMobile } from '../../styled-compoments/ResponsiveStyles';
+import { Button, Icon, Menu, } from 'semantic-ui-react'
+import {  OvTitle } from "../../styled-compoments/OverlayMenuStyles";
 
 class MenuNav extends Component {
-  state = { open: false }
   state = { 
     panelNav: [
       {
@@ -48,11 +45,9 @@ class MenuNav extends Component {
     ],    
    }
 
-  show = (dimmer) => () => this.setState({dimmer, open: true })
-  close = () => this.setState({ open: false })
   
   render() {
-    const { open, dimmer, } = this.state
+    const {toggleSidebar} = this.props
 
     return (
       <>
@@ -66,14 +61,11 @@ UNA STORIA SEGRETA
 </Menu.Item>
 
 <Menu.Menu position='right'>
-{/* <Menu.Item
-href='/contact'
->
 
-About
-</Menu.Item> */}
 <Menu.Item>
-<Button onClick={this.show('blurring')} inverted color='yellow'>
+<Button
+onClick={toggleSidebar}
+ inverted color='yellow'>
   MENU
   </Button>
 </Menu.Item>
@@ -96,14 +88,22 @@ UNA STORIA SEGRETA
 
 {/* MOBILE ONLY BOTTOM */}
 <DeskOnlyResponse>
-      <Menu inverted fixed='bottom' borderless icon='labeled' fluid widths={3}>
+  <FixMobile>
+      <Menu 
+      
+      inverted 
+      fixed='bottom'
+       borderless icon='labeled' 
+       fluid widths={3}>
 
         <Menu.Item name='home' href='/'>
           <Icon name='home' />
           Home
         </Menu.Item>
 
-        <Menu.Item name='bars' onClick={this.show('blurring')}  color='yellow'>
+        <Menu.Item name='bars' 
+         onClick={toggleSidebar}  
+        color='yellow'>
           <Icon name='bars' color='yellow'/>
           Menu
         </Menu.Item>
@@ -114,58 +114,9 @@ UNA STORIA SEGRETA
         </Menu.Item>
 
       </Menu>
+  </FixMobile>
 </DeskOnlyResponse>
 
-
-{/* MODAL START */}
-<Slide bottom>
-        <Modal dimmer={dimmer} open={open} onClose={this.close} closeIcon>
-        <OverlayMenu> 
-        <Slide bottom cascade>
-          <OvTitle
-          href='/'
-          style={{ color: 'var(--primaryText)' }}
-          >
-          UNA STORIA SEGRETA
-          </OvTitle>
-        <Grid columns={2} doubling>
-        <Grid.Row>
-        <Grid.Column>
-
-          <div className="">
-          {this.state.panelNav.map(panelLink => {
-            return (
-              <article key={`panel-${panelLink.title}`} className="">
-          <OvItem
-          href={panelLink.link}
-          >
-          {panelLink.title}
-          </OvItem>
-          </article>
-            );
-          })}
-        </div>
-         
-        </Grid.Column>
-        <Grid.Column>
-        <OvItem
-          href='/contact'
-          >
-          Contact
-          </OvItem>
-          {/* <OvItem>
-          About
-          </OvItem>
-          <OvItem>
-          Donate
-          </OvItem> */}
-        </Grid.Column>
-        </Grid.Row>
-        </Grid>
-        </Slide>
-        </OverlayMenu>
-        </Modal>
-        </Slide>
       </>
     )
   }

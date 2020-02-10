@@ -15,8 +15,6 @@ transition: .2s all;
 
 export const PanelCTA = styled.section`
 
-}
-
 `;
 
 export const PanelImage = styled.section`

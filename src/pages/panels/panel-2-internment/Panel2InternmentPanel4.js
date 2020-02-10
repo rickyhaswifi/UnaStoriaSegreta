@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {
-  SideBySideMagnifier,GlassMagnifier
-} from "react-image-magnifiers";
+import {SideBySideMagnifier} from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
 import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
@@ -25,7 +23,7 @@ class Panel2InternmentPanel4 extends Component {
     panelDetail: [
       {
         photo:`${P8Ezio6}`,
-        info:`Pinza’s apprehension as an enemy alien was reported on the front page of the March 13, 1942 New York Times. The report states that the singer was due to go on a long concert tour the following week. He had earlier registered as an ‘enemy alien’ and was required to carry the Certificate of Identification shown below.`,
+        info:`Pinza’s apprehension as an enemy alien was reported on the front page of the March 13, 1942 <span class='italic'>New York Times</span>. The report states that the singer was due to go on a long concert tour the following week. He had earlier registered as an ‘enemy alien’ and was required to carry the Certificate of Identification shown below.`,
       },
       {
         photo:`${P8Ezio5}`,

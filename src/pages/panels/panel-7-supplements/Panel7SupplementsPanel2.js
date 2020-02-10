@@ -4,7 +4,7 @@ import {
 } from "react-image-magnifiers";
 import { Grid, Message, Menu, Icon, Segment } from "semantic-ui-react";
 import {PageContainer, PageWrap} from '../../../styled-compoments/PanelStyle';
-import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner, PanelContentTitle} from '../../../styled-compoments/PanelContentStyles';
+import { DetailPanel, PanelTitle, Crumbs, CrumbLeft, CrumbRight, PanelBanner,} from '../../../styled-compoments/PanelContentStyles';
 
 // IMAGE IMPORTS // 
 import P2Sup1 from '../../../components/images/panels/supplement/P2Sup1.jpg';
@@ -122,7 +122,7 @@ class Panel7SupplementsPanel2 extends Component {
      </Grid.Column>
 
      <Grid.Column>
-<Segment color='blue'>
+<Segment color='blue' size='small'>
     <div dangerouslySetInnerHTML={{__html: pDetail.info}}/>
 </Segment>
      </Grid.Column>
