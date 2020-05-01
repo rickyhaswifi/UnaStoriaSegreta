@@ -35,7 +35,7 @@ position: absolute !important;
 .italic{
   /* color:var(--primaryBlack); */
   font-style: italic;
-  font-weight:bold !important;
+  font-weight:600 !important;
   /* background-image: linear-gradient(to top, rgba(256,256,31,0.2) 50%, rgba(255,0,0,0) 50%);
   width: auto;
   display: inline; */
