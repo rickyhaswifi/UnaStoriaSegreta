@@ -102,18 +102,6 @@ class Footer extends Component {
         </Menu>
 
         <hr />
-
-        <FooterText>
-        <FooterSocial>
-        <Icon name='facebook' size='big' />
-        </FooterSocial>
-        <FooterSocial>
-        <Icon name='instagram' size='big' />
-        </FooterSocial>
-        <FooterSocial>
-        <Icon name='twitter' size='big' />   
-        </FooterSocial>
-        </FooterText>
         
         <FooterText>
         &copy; {this.state.date} Una Storia Segreta. All rights reserved.
